@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<script>
+  function vidplay() {
+    var video = document.getElementById("myVideo");
+    var button = document.getElementById("play");
+    if (video.paused) {
+      video.play();
+      button.textContent = ">";
+    }else {
+      video.pause();
+      button.textContent = "||";
+    }
+  }
+
+  function restart() {
+    var video = document.getElementById("myVideo");
+    video.currentTime = 0;
+  }
+
+  function skip(value) {
+    var video = document.getElementById("myVideo");
+    video.currentTime += value;
+  }      
+</script>
+
+<style>
+  /*This will style the buttons*/
+  .buttonStyle {
+     width : 60px;
+     height : 20px;
+     -moz-border-radius: 2px;
+     -webkit-border-radius: 2px;
+   }
+    
+   .buttonStyle:hover {
+     background: #0000FF;
+   }
+</style>
+
+<body>
+  <p>This is a test for tag <b>video</b>: 
+      <cite>Minions</cite> <big>Minions</big> <big><big>Minions</big></big>
+  </p>
+  <video id = "myVideo" width="320" height="240">
+    <source src="minions.mp4" type="video/mp4">
+  </video>
+  
+  <div id="buttonbar">
+    <button id="restart" class="buttonStyle" onclick="restart();">[]</button> 
+    <button id="rew" class="buttonStyle" onclick="skip(-20)">&lt;&lt;</button>
+    <button id="play" class="buttonStyle" onclick="vidplay()">&gt;</button>
+    <button id="fastFwd" class="buttonStyle" onclick="skip(20)">&gt;&gt;</button>
+  </div> 
+
+  <p>This is a test for tag <b>audio</b></p>
+  <audio controls>
+    <source src="minions.mp3" type="audio/mp3">
+  </audio> 
+</body>
+</html>
