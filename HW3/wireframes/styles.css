@@ -1,0 +1,45 @@
+body {
+    background-color: #0F1149;
+    font-family: Palatino, serif;
+}
+
+h1{
+	color: #A1E66B;
+	margin-top: -2px;
+}
+
+h2,h3,h4{
+	color: #A1E66B;
+}
+
+a.tablinks{
+	font-weight: bold;
+	font-size: 20px;
+    background-color: #202060;
+}
+
+a:hover{
+	color: gray;
+}
+a{
+	color: #A1E66B;
+	text-decoration: none;
+}
+
+hr{
+	margin: -10px -10px 0px -10px;
+}
+
+p{
+	color: #A1E66B;
+}
+
+td{
+	color: #A1E66B;
+}
+
+figcaption{
+	color: #A1E66B;
+}
+
+

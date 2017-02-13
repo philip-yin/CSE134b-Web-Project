@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+  <head>
+    <title> Stats </title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+
+      <h1 style = "display: inline-block;">LeagueDex</h1>
+      <a href="index.html" style = "float: right; margin-left:10px"> Home </a>
+      <a href="login.html" style = "float: right; margin-left:10px"> Log In</a>
+      <a href="signup.html" style = "float: right;"> Sign Up</a>
+      <hr>
+    
+      <div style ="text-align: center">
+
+        <h2> Champion name</h2>
+        <img src="akali.png" alt="champion-picture">
+
+        <h3>Statistics</h3>
+        <table style="width:50%; margin:auto;">
+          <tr>
+            <td style = "padding-bottom:25px;">Level
+              <select onchange="updateVal(this)">
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><span>HEALTH:</span></td>
+            <td> <p id ="Health">588</p></td>
+            <td><span>ATTACK DAMAGE</span></td>
+            <td> <p id="AttackDamage">58.4</p></td>
+          </tr>
+          <tr>
+            <td><span>HEALTH REGEN:</span></td>
+            <td> <p id="HealthRegen">8.34</p></td>
+            <td><span>ATTACK SPEED:</span></td>
+            <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
+          </tr>
+          <tr>
+            <td><span>MANA:</span></td>
+            <td> <p id="ResourceBar">200</p></td>
+            <td> <span>ARMOR:</span></td>
+            <td> <p id="Armor">26.4</p></td>
+          </tr>
+          <tr>
+            <td><span>MANA REGEN:</span></td>
+            <td> <p id="ResourceRegen">50</p></td>
+            <td><span>MAGIC RESIST:</span></td>
+            <td> <p id="MagicResist">32.1</p></td>
+          </tr>
+          <tr>
+            <td><span>RANGED:</span></td>
+            <td><p id="Range">125</p></td>
+            <td><span>MOVE SPEED:</span></td>
+            <td> <p id="MovementSpeed">350</p></td>
+          </tr>
+    </table>
+
+    </div>
+
+    <script>
+      function updateVal(data) {
+        switch(data.value) {
+          case "1":{
+            document.getElementById ("Health").innerHTML = 588;
+            document.getElementById ("AttackDamage").innerHTML = 58.4;
+            document.getElementById ("HealthRegen").innerHTML.value = 8.34;
+            document.getElementById ("AttackSpeed").innerHTML = 0;
+            document.getElementById ("ResourceBar").innerHTML = 200;
+            document.getElementById ("Armor").innerHTML= 26.4;
+            document.getElementById ("ResourceRegen").innerHTML=50;
+            document.getElementById ("MagicResist").innerHTML= 32.1;
+            document.getElementById ("Range").innerHTML= 125;
+            document.getElementById ("MovementSpeed").innerHTML=350;
+            break;
+          }
+           case "2":{
+            document.getElementById ("Health").innerHTML = 649;
+            document.getElementById ("AttackDamage").innerHTML = 60.7;
+            document.getElementById ("HealthRegen").innerHTML.value = 8.81;
+            document.getElementById ("AttackSpeed").innerHTML = 2.23;
+            document.getElementById ("ResourceBar").innerHTML = 200;
+            document.getElementById ("Armor").innerHTML= 28.9;
+            document.getElementById ("ResourceRegen").innerHTML=50;
+            document.getElementById ("MagicResist").innerHTML= 33;
+            document.getElementById ("Range").innerHTML= 125;
+            document.getElementById ("MovementSpeed").innerHTML=350;
+            break;
+          }
+           case "3":{
+            document.getElementById ("Health").innerHTML = 713;
+            document.getElementById ("AttackDamage").innerHTML = 63.1;
+            document.getElementById ("HealthRegen").innerHTML.value = 9.3;
+            document.getElementById ("AttackSpeed").innerHTML = 4.57;
+            document.getElementById ("ResourceBar").innerHTML = 200;
+            document.getElementById ("Armor").innerHTML= 31.5;
+            document.getElementById ("ResourceRegen").innerHTML=50;
+            document.getElementById ("MagicResist").innerHTML= 33.9;
+            document.getElementById ("Range").innerHTML= 125;
+            document.getElementById ("MovementSpeed").innerHTML=350;
+            break;
+          }
+           case "4":{
+            document.getElementById ("Health").innerHTML = 780;
+            document.getElementById ("AttackDamage").innerHTML = 65.6;
+            document.getElementById ("HealthRegen").innerHTML.value = 9.81;
+            document.getElementById ("AttackSpeed").innerHTML = 7.02;
+            document.getElementById ("ResourceBar").innerHTML = 200;
+            document.getElementById ("Armor").innerHTML= 34.3;
+            document.getElementById ("ResourceRegen").innerHTML=50;
+            document.getElementById ("MagicResist").innerHTML= 34.9;
+            document.getElementById ("Range").innerHTML= 125;
+            document.getElementById ("MovementSpeed").innerHTML=350;
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
