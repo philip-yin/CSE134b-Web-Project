@@ -18,49 +18,50 @@
         <img src="akali.png" alt="champion-picture">
 
         <h3>Statistics</h3>
-        <table style="width:50%; margin:auto;">
-          <tr>
-            <td style = "padding-bottom:25px;">Level
-              <select onchange="updateVal(this)">
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><span>HEALTH:</span></td>
-            <td> <p id ="Health">588</p></td>
-            <td><span>ATTACK DAMAGE</span></td>
-            <td> <p id="AttackDamage">58.4</p></td>
-          </tr>
-          <tr>
-            <td><span>HEALTH REGEN:</span></td>
-            <td> <p id="HealthRegen">8.34</p></td>
-            <td><span>ATTACK SPEED:</span></td>
-            <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
-          </tr>
-          <tr>
-            <td><span>MANA:</span></td>
-            <td> <p id="ResourceBar">200</p></td>
-            <td> <span>ARMOR:</span></td>
-            <td> <p id="Armor">26.4</p></td>
-          </tr>
-          <tr>
-            <td><span>MANA REGEN:</span></td>
-            <td> <p id="ResourceRegen">50</p></td>
-            <td><span>MAGIC RESIST:</span></td>
-            <td> <p id="MagicResist">32.1</p></td>
-          </tr>
-          <tr>
-            <td><span>RANGED:</span></td>
-            <td><p id="Range">125</p></td>
-            <td><span>MOVE SPEED:</span></td>
-            <td> <p id="MovementSpeed">350</p></td>
-          </tr>
-    </table>
-
+        <div class ="bodybox">
+          <table style="width:50%; margin:auto;">
+            <tr>
+              <td style = "padding-bottom:25px;">Level
+                <select onchange="updateVal(this)">
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><span>HEALTH:</span></td>
+              <td> <p id ="Health">588</p></td>
+              <td><span>ATTACK DAMAGE</span></td>
+              <td> <p id="AttackDamage">58.4</p></td>
+            </tr>
+            <tr>
+              <td><span>HEALTH REGEN:</span></td>
+              <td> <p id="HealthRegen">8.34</p></td>
+              <td><span>ATTACK SPEED:</span></td>
+              <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
+            </tr>
+            <tr>
+              <td><span>MANA:</span></td>
+              <td> <p id="ResourceBar">200</p></td>
+              <td> <span>ARMOR:</span></td>
+              <td> <p id="Armor">26.4</p></td>
+            </tr>
+            <tr>
+              <td><span>MANA REGEN:</span></td>
+              <td> <p id="ResourceRegen">50</p></td>
+              <td><span>MAGIC RESIST:</span></td>
+              <td> <p id="MagicResist">32.1</p></td>
+            </tr>
+            <tr>
+              <td><span>RANGED:</span></td>
+              <td><p id="Range">125</p></td>
+              <td><span>MOVE SPEED:</span></td>
+              <td> <p id="MovementSpeed">350</p></td>
+            </tr>
+          </table>
+        </div>
     </div>
 
     <script>

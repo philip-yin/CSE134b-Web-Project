@@ -46,3 +46,13 @@ figcaption{
 	background-color: #2f3743
 }
 
+.bodybox{
+	border: solid white 0.5px;
+	background-color: #2F374E;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 0px 9px 5px;
+}
+
