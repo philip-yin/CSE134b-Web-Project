@@ -56,3 +56,9 @@ figcaption{
 	padding: 10px 0px 9px 5px;
 }
 
+form  { display: table;      
+}
+label { display: table-cell; 
+}
+input { display: table-cell; 
+}
