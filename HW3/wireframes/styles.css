@@ -25,12 +25,13 @@ h2,h3,h4{
 a.tablinks{
 	font-weight: bold;
 	font-size: 20px;
-    background-color: #202060;
+        background-color: #202060;
 }
 
 a:hover{
 	color: gray;
 }
+
 a{
 	color: #A1E66B;
 	text-decoration: none;
