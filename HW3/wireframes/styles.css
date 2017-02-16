@@ -85,12 +85,9 @@ figcaption{
 	margin-left: -1%;
 }
 
-form  { display: table;      
-}
-label { display: table-cell; 
-}
-input { display: table-cell; 
-}
+form  { display: table; }
+label { display: table-cell; }
+input { display: table-cell; }
 
 input#favorite {
     background: #2F374E url('star.png') no-repeat left;
