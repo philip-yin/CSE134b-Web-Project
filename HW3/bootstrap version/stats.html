@@ -3,64 +3,6 @@
 	<head>
 		<title>Stats</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		    <script>
-      function updateVal(data) {
-        switch(data.value) {
-          case "1":{
-            document.getElementById ("Health").innerHTML = 588;
-            document.getElementById ("AttackDamage").innerHTML = 58.4;
-            document.getElementById ("HealthRegen").innerHTML.value = 8.34;
-            document.getElementById ("AttackSpeed").innerHTML = 0;
-            document.getElementById ("ResourceBar").innerHTML = 200;
-            document.getElementById ("Armor").innerHTML= 26.4;
-            document.getElementById ("ResourceRegen").innerHTML=50;
-            document.getElementById ("MagicResist").innerHTML= 32.1;
-            document.getElementById ("Range").innerHTML= 125;
-            document.getElementById ("MovementSpeed").innerHTML=350;
-            break;
-          }
-           case "2":{
-            document.getElementById ("Health").innerHTML = 649;
-            document.getElementById ("AttackDamage").innerHTML = 60.7;
-            document.getElementById ("HealthRegen").innerHTML.value = 8.81;
-            document.getElementById ("AttackSpeed").innerHTML = 2.23;
-            document.getElementById ("ResourceBar").innerHTML = 200;
-            document.getElementById ("Armor").innerHTML= 28.9;
-            document.getElementById ("ResourceRegen").innerHTML=50;
-            document.getElementById ("MagicResist").innerHTML= 33;
-            document.getElementById ("Range").innerHTML= 125;
-            document.getElementById ("MovementSpeed").innerHTML=350;
-            break;
-          }
-           case "3":{
-            document.getElementById ("Health").innerHTML = 713;
-            document.getElementById ("AttackDamage").innerHTML = 63.1;
-            document.getElementById ("HealthRegen").innerHTML.value = 9.3;
-            document.getElementById ("AttackSpeed").innerHTML = 4.57;
-            document.getElementById ("ResourceBar").innerHTML = 200;
-            document.getElementById ("Armor").innerHTML= 31.5;
-            document.getElementById ("ResourceRegen").innerHTML=50;
-            document.getElementById ("MagicResist").innerHTML= 33.9;
-            document.getElementById ("Range").innerHTML= 125;
-            document.getElementById ("MovementSpeed").innerHTML=350;
-            break;
-          }
-           case "4":{
-            document.getElementById ("Health").innerHTML = 780;
-            document.getElementById ("AttackDamage").innerHTML = 65.6;
-            document.getElementById ("HealthRegen").innerHTML.value = 9.81;
-            document.getElementById ("AttackSpeed").innerHTML = 7.02;
-            document.getElementById ("ResourceBar").innerHTML = 200;
-            document.getElementById ("Armor").innerHTML= 34.3;
-            document.getElementById ("ResourceRegen").innerHTML=50;
-            document.getElementById ("MagicResist").innerHTML= 34.9;
-            document.getElementById ("Range").innerHTML= 125;
-            document.getElementById ("MovementSpeed").innerHTML=350;
-            break;
-          }
-        }
-      }
-    </script>
 	</head>
 	
 	<body style="background-color: #0F1149;">
@@ -85,52 +27,59 @@
 			</div>
 		</div>
 		
-		<div style ="text-align: center">
-        <h3>Statistics</h3>
-        <div class ="bodybox">
-          <table style="border-spacing: 15px; margin: auto;">
-            <tr>
-              <td style = "padding-bottom:25px;">Level
-                <select onchange="updateVal(this)">
+		<div style ="text-align: center; color: green;">
+			<h3>Statistics</h3>
+			<select onchange="updateVal(this)">
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
                   <option value='4'>4</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td><span>HEALTH:</span></td>
-              <td> <p id ="Health">588</p></td>
-              <td><span>ATTACK DAMAGE</span></td>
-              <td> <p id="AttackDamage">58.4</p></td>
-            </tr>
-            <tr>
-              <td><span>HEALTH REGEN:</span></td>
-              <td> <p id="HealthRegen">8.34</p></td>
-              <td><span>ATTACK SPEED:</span></td>
-              <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
-            </tr>
-            <tr>
-              <td><span>MANA:</span></td>
-              <td> <p id="ResourceBar">200</p></td>
-              <td> <span>ARMOR:</span></td>
-              <td> <p id="Armor">26.4</p></td>
-            </tr>
-            <tr>
-              <td><span>MANA REGEN:</span></td>
-              <td> <p id="ResourceRegen">50</p></td>
-              <td><span>MAGIC RESIST:</span></td>
-              <td> <p id="MagicResist">32.1</p></td>
-            </tr>
-            <tr>
-              <td><span>RANGED:</span></td>
-              <td><p id="Range">125</p></td>
-              <td><span>MOVE SPEED:</span></td>
-              <td> <p id="MovementSpeed">350</p></td>
-            </tr>
-          </table>
+            </select>
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<p id ="Health">HEALTH: 588</p>
+				</div>
+				<div class = "col-sm-3">
+					<p id="AttackDamage">TTACK DAMAGE: 58.4</p>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<p id ="HealthRegen">HEALTH REGEN: 8.34</p>
+				</div>
+				<div class = "col-sm-3">
+					<p>ATTACK SPEED: 0.694(+<span id="AttackSpeed">0</span>%)</p>
+				</div>
+			</div>
+            <div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<p id ="ResourceBar">MANA: 200</p>
+				</div>
+				<div class = "col-sm-3">
+					<p id="Armor">ARMOR: 26.4</p>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<p id ="ResourceRegen">MANA REGEN: 50</p>
+				</div>
+				<div class = "col-sm-3">
+					<p id="MagicResist">MAGIC RESIST: 32.1</p>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<p id ="Range">RANGED: 125</p>
+				</div>
+				<div class = "col-sm-3">
+					<p id="MovementSpeed">MOVE SPEED: 350</p>
+				</div>
+			</div>
         </div>
-		</div>
 	</body>
 </html>

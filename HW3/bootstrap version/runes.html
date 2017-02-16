@@ -1,40 +1,57 @@
-<!DOCTYPE html>
-  <head>
-    <title> Runes </title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Runes</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	
+	<body style="background-color: #0F1149;">
+		<nav class = "navbar navbar-default" style = "background-color: #2f3743;">
+			<div class = "container-fluid">
+				<div class = "navbar-header">
+					<a class = "navbar-brand" style = "color: #A1E66B;">LeagueDex </a>
+				</div>
+				<ul class = "nav navbar-nav navbar-right">
+					<li><a href = "index.html" style = "color: #A1E66B;">Home</a></li>
+				</ul>
+			</div>
+		</nav>
 
-    <div class = topbar>
-      <h1>LeagueDex</h1>
-      <a href="index.html"> Home </a>
-      <a href="login.html"> Log In</a>
-      <a href="signup.html"> Sign Up</a>
-      <hr>
-    </div>
-    <div style = "text-align: center;">
+		<div class = "row">
+			<div class = "col-sm-2"></div>
+			<div class = "col-sm-8">
+				<div class = "thumbnail"  style = "background-color: #0F1149;text-align: center; ">
+					<h2 style = "color: blue;">Champion name</h2>
+					<img class = "img-responsive" src="akali.png" alt="akali">
+					<h3> Recommended Runes </h3>
+				</div>
+			</div>
+		</div>
 
-      <h2> Champion name</h2>
-      <img src="akali.png" alt="champion-picture">
+		<div class= "well" style = "background-color: #0F1149; text-align: center;">
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<img src="greater-quintessence-of-ability-power.png" alt="greater-quintessence-of-ability-power"> 
+					<div class = "caption"> Greater Quintessence of Ability Power <br> x3 </div>
+				</div>
+				<div class = "col-sm-3">
+					<img src="greater-glyph-of-scaling-ability-power.png" alt="greater-glyph-of-scaling-ability-power"> 
+					<div class = "caption">Greater Glyph of Scaling Ability Power <br> x9 </div>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-sm-3"></div>
+				<div class = "col-sm-3">
+					<img src="greater-seal-of-scaling-health.png" alt="greater-seal-of-scaling-health"> 
+					<div class = "caption">Greater Seal of Scaling Health <br> x9 </div>
+				</div>
+				<div class = "col-sm-3">
+					<img src="greater-mark-of-magic-penetration.png" alt="greater-mark-of-magic-penetration"> 
+					<div class = "caption">Greater Mark of Magic Penetration <br> x9 </div> 
+				</div>
+			</div>
+		</div>
 
-      <h3>Recommended Runes</h3>
-      <div class = "bodybox">
-        <figure style = "margin-left: 6%; display:inline-block;">
-          <img src="greater-quintessence-of-ability-power.png" alt="greater-quintessence-of-ability-power"> 
-          <figcaption>Greater Quintessence of Ability Power <br> x3</figcaption> 
-        </figure>
-        <figure style = "margin-left: 6%; display:inline-block;">
-          <img src="greater-glyph-of-scaling-ability-power.png" alt="greater-glyph-of-scaling-ability-power"> 
-          <figcaption>Greater Glyph of Scaling Ability Power <br> x9 </figcaption> 
-        </figure>
-        <figure style = "margin-left: 6%; display:inline-block;">
-          <img src="greater-seal-of-scaling-health.png" alt="greater-seal-of-scaling-health"> 
-          <figcaption>Greater Seal of Scaling Health <br> x9 </figcaption> 
-        </figure>
-        <figure style = "margin-left: 6%; display:inline-block;">
-          <img src="greater-mark-of-magic-penetration.png" alt="greater-mark-of-magic-penetration"> 
-          <figcaption>Greater Mark of Magic Penetration <br> x9 </figcaption> 
-        </figure>
-    </div>
-  </body>
+	</body>
 </html>

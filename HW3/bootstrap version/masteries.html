@@ -1,53 +1,56 @@
-<!DOCTYPE html>
-  <head>
-      <title> Masteries </title>
-      <link rel="stylesheet" href="styles.css">
-  </head>
-  
-  <body>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>masteries</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	
+	<body style="background-color: #0F1149;">
+		<nav class = "navbar navbar-default" style = "background-color: #2f3743;">
+			<div class = "container-fluid">
+				<div class = "navbar-header">
+					<a class = "navbar-brand" style = "color: #A1E66B;">LeagueDex </a>
+				</div>
+				<ul class = "nav navbar-nav navbar-right">
+					<li><a href = "index.html" style = "color: #A1E66B;">Home</a></li>
+				</ul>
+			</div>
+		</nav>
 
-    <div class = topbar>
-      <h1>LeagueDex</h1>
-      <a href="index.html"> Home </a>
-      <a href="login.html"> Log In</a>
-      <a href="signup.html"> Sign Up</a>
-      <hr>
-    </div>
-  
-    <div style ="text-align: center">
-      <h2> Champion name</h2>
-      <img src="akali.png" alt="champion-picture">
+		<div class = "row">
+			<div class = "col-sm-2"></div>
+			<div class = "col-sm-8">
+				<div class = "thumbnail"  style = "background-color: #0F1149; text-align: center; ">
+					<h3 style = "color: blue;">Champion name</h2>
+					<img class = "img-responsive" src="akali.png" alt="akali">
+					<h4> Recommended Masteries </h3>
+					<h5> Jungle Build: </h4>
+				</div>
+			</div>
+		</div>
 
-      <h3>Recommended Masteries</h3>
-    </div>
-
-    <div style="margin-top: 2%; text-align: center">
-      <h4 style="text-align: center; margin-bottom: -10px">Jungle Build: </h4>
-      <figure style="display: inline-block;">
-        <figcaption>Offense:</figcaption>
-        <figure>
-          <img src="akali-mastery-offense.png" alt="akali-offense">
-          <figcaption>Points Used: 11</figcaption>
-        </figure>
-      </figure>
-
-      <figure style="margin-left:-10px; margin-right:-10px; display: inline-block;">
-        <figcaption>Defense:</figcaption>
-        <figure>
-          <img src="akali-mastery-defense.png" alt="akali-defense">
-          <figcaption>Points Used: 19</figcaption>
-        </figure>
-      </figure>
-
-      <figure style="display: inline-block;">
-        <figcaption>Utility:</figcaption>
-        <figure>
-          <img src="akali-mastery-utility.png" alt="akali-utility">
-          <figcaption>Points Used: 0</figcaption>
-        </figure>
-      </figure>
-    </div>
-  
-  </body>
-
+		<div class = "row">
+			<div class = "col-sm-4">
+				<div class = "thumbnail" style = "text-align: center; background-color: #0F1149;" >
+					<div class = "caption"> Offense: </div>
+					<img class = "img-responsive" src = "akali-mastery-offense.png">
+					<div class = "caption"> Points Used: 11 </div>
+				</div>
+			</div>
+			<div class = "col-sm-4">
+				<div class = "thumbnail" style = "text-align: center; background-color: #0F1149;">
+					<div class = "caption"> Defense: </div>
+					<img class = "img-responsive" src = "akali-mastery-defense.png">
+					<div class = "caption"> Points Used: 19 </div>
+				</div>
+			</div>
+			<div class = "col-sm-4">
+				<div class = "thumbnail" style = "text-align: center; background-color: #0F1149;">
+					<div class = "caption"> Utility: </div>
+					<img class = "img-responsive" src = "akali-mastery-utility.png">
+					<div class = "caption"> Points Used: 0 </div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
