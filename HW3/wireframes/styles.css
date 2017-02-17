@@ -25,7 +25,7 @@ h2,h3,h4{
 a.tablinks{
 	font-weight: bold;
 	font-size: 20px;
-        background-color: #202060;
+    background-color: #202060;
 }
 
 a:hover{
@@ -85,25 +85,9 @@ figcaption{
 	margin-left: -1%;
 }
 
-form  { display: table; }
-label { display: table-cell; }
-input { display: table-cell; }
-
-input#favorite {
-    background: #2F374E url('star.png') no-repeat left;
-    color: white;
-    border: solid black 1px;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 15px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    padding-left: 20px;
+form  { display: table;      
 }
-
-#favorite:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+label { display: table-cell; 
+}
+input { display: table-cell; 
 }

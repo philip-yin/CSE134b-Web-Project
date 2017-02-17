@@ -6,7 +6,7 @@
 	</head>
 	
 	<body style="background-color: #0F1149;">
-		<nav class = "navbar navbar-default" style = "background-color: #2f3743;">
+		<nav class = "navbar navbar-inverse">
 			<div class = "container-fluid">
 				<div class = "navbar-header">
 					<a class = "navbar-brand" style = "color: #A1E66B;">LeagueDex </a>
@@ -25,17 +25,25 @@
 				</div>
 				<form class = "form-horizontal">
 					<div class ="form-group">
-						<label class = "control-label col-sm-2" for="username" style= "color: #A1E66B;">Username: </label>
-						<input type="text" class = "form-control-label" id = "username" placeholder="Enter email">
+						<label class = "control-label col-sm-5" for="username" style= "color: #A1E66B;">Username: </label>
+						<input type="text" class = "form-control-label" id = "username" placeholder="Enter Username">
 					</div>
 					<div class ="form-group">
-						<label class = "control-label col-sm-2" for="password" style= "color: #A1E66B;">Password: </label>
+						<label class = "control-label col-sm-5" for="password" style= "color: #A1E66B;">Password: </label>
 						<input type="text" class = "form-control-label" id = "password" placeholder="Enter password">
 					</div>
-					<div class = "checkbox">
-						<label><input type="checkbox"> <p style= "color: #A1E66B;">Remember me</p></label>
+					<div class = "form-group">
+						<div class="col-sm-offset-5 col-sm-8">
+							<div class = "checkbox">
+								<label><input type="checkbox"> <p style= "color: #A1E66B;">Remember me</p></label>
+							</div>
+						</div>
 					</div>
-					<button type="submit" class="btn btn-default">Log In</button>
+					<div class = "form-group">
+						<div class="col-sm-offset-5 col-sm-8">
+							<button type="submit" class="btn btn-default">Log In</button>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div class = "col-sm-4"></div>
