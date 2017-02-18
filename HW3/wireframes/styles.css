@@ -91,3 +91,22 @@ label { display: table-cell;
 }
 input { display: table-cell; 
 }
+
+input#favorite {
+    background: #2F374E url('star.png') no-repeat left;
+    color: white;
+    border: solid black 1px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 15px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    padding-left: 20px;
+}
+
+#favorite:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
