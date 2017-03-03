@@ -21,13 +21,47 @@
   	
   	<form method = "post">
 
-  		<h4 style = "display: table-row;"><label>Username:</label>   <input type="text" name="username" value=""></h4><br>
-  		<h4 style = "display: table-row;"><label>Password:</label>   <input type="text" name="password" value=""></h4><br>
-  		<input type="submit" value="Login">
+  		<h4 style = "display: table-row;"><label>Email:</label>   <input type="text" name="username" id = "email"></h4><br>
+  		<h4 style = "display: table-row;"><label>Password:</label>   <input type="text" name="password" id = "password"></h4><br>
+  		<button onclick = "ale()"> Login </button>
 
   	</form>
   </div>
 
 
  </body>
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+<script src="javascript/common.js"></script>
+<script>
+  function ale(){
+	var email = document.getElementById('email').value;
+	var password = document.getElementById('password').value;
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		// ...
+		if (errorCode === 'auth/wrong-password') {
+			alert('Wrong password.');
+		} else {
+			alert(errorMessage);
+		}
+	});
+	
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+		// User is signed in.
+			alert("Sign In Successful!");
+		} else {
+			// No user is signed in.
+			alert("Wrong password/Email entered");
+		}
+	});
+  }
+
+</script>
 </html>
