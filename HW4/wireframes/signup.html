@@ -20,12 +20,12 @@
   	  </div>
 	
 	<div style = "text-align: left; display: flex;justify-content: center; align-items: center;">
-	  <form method = "POST">
+	  <div style = "display: table;" method = "POST">
 	    <h4 style = "display: table-row;"><label>Email:</label>  <input type = "text" name = "email" id = "email"></h4><br>
 		  <h4 style = "display: table-row;"><label>Password:</label>  <input type = "text" name = "password" id = "password"></h4><br>
 		  <h4 style = "display: table-row;"><label>Confirm Password:</label> <input type = "text" name = "confirm"></h4><br>
 		  <button onclick = "ale()">Signup </button>
-	  </form>
+	  </div>
 	</div>
   </body>
   
@@ -43,7 +43,7 @@
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 	// Handle Errors here.
 	var errorCode = error.code;
-    var errorMessage = error.message;
+        var errorMessage = error.message;
 	// ...
 	alert(errorCode + "\n" + errorMessage);
 	});
