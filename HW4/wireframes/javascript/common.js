@@ -41,9 +41,7 @@
 	
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
+
       } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
@@ -75,6 +73,13 @@
       }
     }
 
+	function signout(){
+		if(firebase.auth().currentUser){
+			firebase.auth().signOut();
+			document.getElementById("inout").textContent = "Log In";
+		}
+	}
+	
 	function initApp() {
       // Listening for auth state changes.
       // [START authstatelistener]
@@ -92,7 +97,9 @@
           var uid = user.uid;
           var providerData = user.providerData;
           // [START_EXCLUDE]
+
           document.getElementById('status').textContent = 'Hi, ' + email;
+          document.getElementsByTagName("a")[2].removeAttribute("href");
           document.getElementById('inout').textContent = 'Sign out';
           //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           if (!emailVerified) {
@@ -114,6 +121,7 @@
       // [END authstatelistener]
       //document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
       //document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+	  document.getElementById('inout').addEventListener('click', signout, false);
     }
 	
 	
