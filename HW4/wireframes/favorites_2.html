@@ -35,7 +35,7 @@
         <h1 style = "text-align: center;color: #787878;">
             Enter your Favorite Champions here</h1>
 
-        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onKeyPress="saveToList(event)" />
+        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onKeyPress="return saveToList(event)" />
         <h4 style = "text-align: center;color: #787878;">My Favorite Champions</h4>
         <ol id="fav"></ol>
     </div>
@@ -47,22 +47,37 @@
 <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 <script src="javascript/common.js"></script>
 <script>
-    var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
-    var user = firebase.auth().currentUser;
+    var fav  = firebase.database().ref('Favorites');
+  
+    window.onload =function displayFav(){
+      user = firebase.auth().currentUser;
+      if(user){
+         var ref1 = fav.child(user.uid);
+         if(ref1) {
+           ref.once("value")
+            .then(onValue);
+          }
+      }
+    }
+  
     function saveToList(event) {
+        user = firebase.auth().currentUser;
         if(user){
             //when user press the enter key
             if (event.which == 13 || event.keyCode == 13) { 
                 var chamName = document.getElementById('chamName').value;
-                DatabaseReference ref1 = fav.child(user);
+                var ref1 = fav.child(user.uid);
                 if(ref1) {
-                    DatabaseReference ref2 = ref1.push();
-                    ref2.setValue(chamName);
+                    var ref2 = ref1.push({
+                      name: chamName
+                    });
                 }
                 else{
                     ref1.set({name: chamName});
                 }
                 document.getElementById('chamName').value = '';
+                ref1.on("value", onValue);
+                return false;
             }
         }
         else{
@@ -73,28 +88,29 @@
     function refresh(list) {
         var lis = '';
         for (var i = 0; i < list.length; i++) {
-            lis += '<li data-key="' + list[i].key + '">' + list[i].name + '<button onclick ="delete('+list[i].key+')">X</button>'+'</li>';
+            lis += '<li data-key="' + list[i].key + '">' + list[i].name + '<button onclick ="deleteFav('+list[i].key+')">X</button>'+'</li>';
         };
         document.getElementById('fav').innerHTML = lis;
     }
 
-    function delete(key){
-        var delRef = fav.child(user).child(key); 
+    function deleteFav(key){
+        var delRef = fav.child(user.uid).child(key); 
         delRef.remove();
     }
 
-    fav.child(user).on("value", function(snapshot) {
+    var onValue = function(snapshot) {
         var data = snapshot.val();
         var list = [];
         for (var key in data) {
             if (data.hasOwnProperty(key)) {
+                name = data[key].name ? data[key].name : '';
                 list.push({
-                    name: data[key],
+                    name: name,
                     key: key
                 })
             }
         }
         refresh(list);
-    });
+    }
 </script>
 </html>
