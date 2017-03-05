@@ -22,7 +22,7 @@
     </div>
 	<div style = "text-align:center">
 	     <h2>Champion name</h2>
-	     <p> <input type="button" onclick="alert('Added to Favorites')" id="favorite" value ="Favorite"></p>
+	     <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
 		 <img src="champions\akali\akali.png" alt="champion-picture" style="width:200px;height:200px;">
 	   
 		<div class = "bodybox">
@@ -41,4 +41,38 @@
 		</div>
 	</div>
   </body>
+  
+  <script>
+	var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
+	var user = firebase.auth().currentUser;
+	var database = firebase.database();
+	
+	function change(){
+		if(user){
+			if(document.getElementById("favorite").value === "Favorite"){
+				alert('Added to Favorites');
+				document.getElementById("favorite").value = "Un-Favorite";
+				DatabaseReference ref1 = fav.child(user);
+				if(ref1) {
+                    DatabaseReference ref2 = ref1.push();
+                    ref2.setValue("Akali");
+                }
+				else{
+                    ref1.set({name: "Akali"});
+                }
+			}
+			else{
+				alert('Removed from Favorites');
+				document.getElementById("favorite").value = "Favorite";
+				DatabaseReference ref1 = fav.child(user);
+				if(ref1) {
+                    ref1.set({name: null});
+                }
+			}
+		}
+		else{
+			alert('Not logged in.');
+		}
+	}
+  </script>
 </html>
