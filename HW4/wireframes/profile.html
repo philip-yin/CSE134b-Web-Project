@@ -21,13 +21,13 @@
       <hr>
     </div>
 	<div style = "text-align:center">
-	     <h2>Champion name</h2>
-	     <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
-		 <img src="champions\akali\akali.png" alt="champion-picture" style="width:200px;height:200px;">
-	   
+	    <h2 id="champname"></h2>
+	    <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
+		 
+		<img id="image" src="" alt="champion-picture" style="width:200px;height:200px;">
 		<div class = "bodybox">
-		      <h3 style = "text-align: center">Tips...</h3>
-		      <p style = "border:solid white 0.5px; width:50%; display:inline-block;"> HOW TO PLAY THIS CHAMPION </p>
+		    <h3 style = "text-align: center">Tips...</h3>
+		    <p style = "border:solid white 0.5px; width:50%; display:inline-block;"> HOW TO PLAY THIS CHAMPION </p>
 		
 			<div style = "text-align:center;">
 			  <a href="stats.html"> <p>statistics</p> </a>
@@ -44,37 +44,46 @@
   
   <script>
 	var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
-	var user = firebase.auth().currentUser;
-	var database = firebase.database();
 	
 	function change(){
+		user = firebase.auth().currentUser;
 		if(user){
-			if(document.getElementById("favorite").value === "Favorite"){
-				document.getElementById("favorite").value = "Un-Favorite";
-				//DatabaseReference ref1 = fav.child(user);
-				database.ref('user/' + user).set({name: "Akali"});
-				//if(ref1) {
-                //    DatabaseReference ref2 = ref1.push();
-                //    ref2.setValue("Akali");
-                //}
-				//else{
-                //    ref1.set({name: "Akali"});
-                //}
+			var favButton = document.getElementById("favorite").value;
+			if(favButton === "Favorite"){
 				alert('Added to Favorites');
+				document.getElementById("favorite").value = "Un-Favorite";
+				var ref1 = fav.child(user.uid);
+				if(ref1) {
+					var ref2 = ref1.push({
+						name: "Akali-Profile"
+					});
+                }
+				else{
+                    ref1.set({name: "Akali-Practice"});
+                }
 			}
 			else{
 				alert('Removed from Favorites');
 				document.getElementById("favorite").value = "Favorite";
-				//DatabaseReference ref1 = fav.child(user);
-				database.ref('user/' + user).set({name: null});
-				//if(ref1) {
-                //    ref1.set({name: null});
-                //}
+				var ref1 = fav.child(user.uid);
+				ref1.set({name: null});
 			}
 		}
 		else{
 			alert('Not logged in.');
 		}
 	}
+	window.onload = function displayCham(){
+        var championInfo = document.cookie.split(";");
+		var chamName = championInfo[0].split("=")[1];
+		document.getElementById("champname").innerHTML = chamName;
+		var chamImg = championInfo[1].split("=")[1];
+		document.getElementById("image").src = chamImg;
+    }
+	
+	//var championInfo = document.cookie.split(";");
+	//var chamName = championInfo[0].split("=")[1];
+	//document.getElementById("champname").innerHTML = chamName;
+	
   </script>
 </html>

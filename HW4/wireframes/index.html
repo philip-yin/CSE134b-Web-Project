@@ -52,13 +52,17 @@
     function refresh(list) {
         var lis = '';
         for (var i = 0; i < list.length; i++) {
-            lis += '<a href = '+list[i].profile+'>'+
+            lis += '<a href = '+list[i].profile+' onClick = 'champInfoSend(list)'>'+
                    '<figure style = "margin-left: 6%; display:inline-block;">'+
                    '<img src='+list[i].image +' alt="champion" >'+
                    '<figcaption>'+list[i].name+'</figcaption></figure></a>';
         };
         document.getElementById('cham').innerHTML = lis;
     }
+	
+	function champInfoSend(list){
+		document.cookie = "champName=" + list[i].name + "; image=" + list[i].image;
+	}
 
     var onValue = function(snapshot) {
         var data = snapshot.val();
@@ -74,5 +78,6 @@
         }
         refresh(list);
     }
+	
 </script>
 </html>
