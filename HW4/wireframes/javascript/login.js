@@ -76,11 +76,11 @@
     }
 
 	function checkStatus(){
-		console.log("user: " + firebase.auth().currentUser);
-		if(firebase.auth().currentUser){
+		firebase.auth().onAuthStateChanged(function(user) {
+			if(user){
 			window.location.href = 'index.html';
-			console.log('redirect to home page');
-		}
+			}
+		});
 	}
 	
 	function signout(){
@@ -91,9 +91,9 @@
 	}
 	
 	function initApp() {
-      // Listening for auth state changes.
-      // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {
+		// Listening for auth state changes.
+		// [START authstatelistener]
+		firebase.auth().onAuthStateChanged(function(user) {
         // [START_EXCLUDE silent]
         //document.getElementById('quickstart-verify-email').disabled = true;
         // [END_EXCLUDE]
