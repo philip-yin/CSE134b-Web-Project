@@ -49,12 +49,15 @@
 <script>
     var fav  = firebase.database().ref('Favorites');
   
-    window.onload =function displayFav(){
-      user = firebase.auth().currentUser;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) displayFav(user);
+    });
+  
+    function displayFav(user){
       if(user){
          var ref1 = fav.child(user.uid);
          if(ref1) {
-           ref.once("value")
+           ref1.once("value")
             .then(onValue);
           }
       }
@@ -88,14 +91,16 @@
     function refresh(list) {
         var lis = '';
         for (var i = 0; i < list.length; i++) {
-            lis += '<li data-key="' + list[i].key + '">' + list[i].name + '<button onclick ="deleteFav('+list[i].key+')">X</button>'+'</li>';
+            lis += '<li data-key="' + list[i].key + '">' + list[i].name + '<button onclick ="deleteFav(\''+list[i].key+'\')">X</button>'+'</li>';
         };
         document.getElementById('fav').innerHTML = lis;
     }
 
     function deleteFav(key){
+        user = firebase.auth().currentUser;
         var delRef = fav.child(user.uid).child(key); 
         delRef.remove();
+        fav.child(user.uid).on("value", onValue);
     }
 
     var onValue = function(snapshot) {
