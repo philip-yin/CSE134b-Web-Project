@@ -13,6 +13,7 @@
 	function handleSignUp() {
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
+	  var confirm = document.getElementById('confirm').value;
       if (email.length < 4) {
         alert('Please enter an email address.');
         return;
@@ -21,6 +22,10 @@
         alert('Please enter a password.');
         return;
       }
+	  if (password !== confirm){
+		  alert('Please enter the same password twice.');
+		  return;
+	  }
       // Sign in with email and pass.
       // [START createwithemail]
       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -74,6 +79,14 @@
       }
     }
 
+	function checkStatus(){
+		firebase.auth().onAuthStateChanged(function(user) {
+			if(user){
+			window.location.href = 'index.html';
+			}
+		});
+	}
+	
 	function signout(){
 		if(firebase.auth().currentUser){
 			firebase.auth().signOut();
@@ -124,6 +137,7 @@
 	  
       document.getElementById('signup').addEventListener('click', handleSignUp, false);
 	  document.getElementById('inout').addEventListener('click', signout, false);
+	  document.getElementById('signup').addEventListener('click', checkStatus, false);
 	  if (firebase.auth().currentUser){
 		  alert("Sign up successful");
 	  }
