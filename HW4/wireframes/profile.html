@@ -10,16 +10,6 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 	<script src="javascript/common.js"></script>
-	<script type = "text/javascript">
-		var decodedCookie = decodeURIComponent(document.cookie);
-		var championInfo = decodedCookie.split(";");
-		alert(decodedCookie);
-		var chamName = championInfo[0].split("=")[1];
-		alert(chamName);
-		document.getElementById("champname").innerHTML = chamName;
-		var chamImg = championInfo[1].split("=")[1];
-		document.getElementById("image").src = chamImg;
-	</script>
 	<script>
 		var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
 	
@@ -88,4 +78,13 @@
 		</div>
 	</div>
   </body>
+  <script type = "text/javascript">
+		//var decodedCookie = decodeURIComponent(document.cookie);
+		var championInfo = document.cookie.split(";");
+		var chamName = championInfo[0].split("=")[1];
+		document.getElementById("champname").innerHTML = chamName;
+		var chamImg = championInfo[1].split("=")[1];
+		document.getElementById("image").src = chamImg;
+		alert(championInfo + " " + chamName + " " + chamImg);
+	</script>
 </html>
