@@ -14,8 +14,8 @@
 <script>
     var cham  = firebase.database().ref('Champions');
   
-    window.onload = function displayCham(){
-         cham.once("value")
+    /*window.onload = function displayCham(){
+			cham.once("value")
             .then(onValue);
     }
 
@@ -29,12 +29,13 @@
                    '<figcaption>'+list[i].name+'</figcaption></figure></a>';
         };
         document.getElementById('cham').innerHTML = lis;
-    }
+    }*/
 	
-	function champInfoSend(list,i){
-		document.cookie = "champName=" + list[i].name + "; image=" + list[i].image;
+	function champInfoSend(name,img){
+	alert(name + img);
+		document.cookie = "champName=" + name + "; image=" + img;
 	}
-
+	/*
     var onValue = function(snapshot) {
         var data = snapshot.val();
         var list = [];
@@ -48,7 +49,7 @@
             }
         }
         refresh(list);
-    }
+    }*/
 	
 </script>
  </head>
@@ -71,6 +72,63 @@
   	  <input type = "text" name = "search" placeholder="Search Champion..." style = "margin:2%; float:right;">
     </div>
 
+    <div id = "cham" style = "margin-top:10%; text-align:center;">
+  	</div>
+	
+	<div style = "margin-top:10%; text-align:center;">
+	    <a href = "profile.html" onClick = "champInfoSend('Akali','champions\akali\akali.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\akali\akali.png" alt="champion" > <figcaption>Akali</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" onClick = "champInfoSend('Ashe','champions\ashe\ashe.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\ashe\ashe.png" alt="champion" > <figcaption>Ashe</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" onClick = "champInfoSend('Darius','champions\darius\darius.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\darius\darius.png" alt="champion" > <figcaption>Darius</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" onClick = "champInfoSend('Lucian','champions\lucian\lucian.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\lucian\lucian.png" alt="champion" > <figcaption>Lucian</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" onClick = "champInfoSend('Master Yi','champions\masteryi\masteryi.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\masteryi\masteryi.png" alt="champion" > <figcaption>Master Yi</figcaption> 
+  		  </figure>
+		</a>
+  	</div>
+
+  	<div style = "margin-top:4%; text-align:center">
+  		<a href = "profile.html" onClick = "champInfoSend('Riven','champions\riven\riven.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\riven\riven.png" alt="champion" > <figcaption>Riven</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" onClick = "champInfoSend('Skarner','champions\skarner\skarner.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\skarner\skarner.png" alt="champion" > <figcaption>Skarner</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" onClick = "champInfoSend('Tristana','champions\tristana\tristana.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\tristana\tristana.png" alt="champion" > <figcaption>Tristana</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" onClick = "champInfoSend('Vi','champions\vi\vi.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\vi\vi.png" alt="champion" > <figcaption>Vi</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" onClick = "champInfoSend('Yasuo','champions\yasuo\yasuo.png')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\yasuo\yasuo.png" alt="champion" > <figcaption>Yasuo</figcaption> 
+  		  </figure>
+		  </a>
     <div id = "cham" style = "margin-top:10%; text-align:center;">
   	</div>
 
