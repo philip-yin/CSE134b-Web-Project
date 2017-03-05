@@ -50,7 +50,6 @@
 	function change(){
 		if(user){
 			if(document.getElementById("favorite").value === "Favorite"){
-				alert('Added to Favorites');
 				document.getElementById("favorite").value = "Un-Favorite";
 				DatabaseReference ref1 = fav.child(user);
 				if(ref1) {
@@ -60,6 +59,7 @@
 				else{
                     ref1.set({name: "Akali"});
                 }
+				alert('Added to Favorites');
 			}
 			else{
 				alert('Removed from Favorites');
