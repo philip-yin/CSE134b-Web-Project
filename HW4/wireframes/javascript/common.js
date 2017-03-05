@@ -41,9 +41,7 @@
 	
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
-        // [START signout]
-        firebase.auth().signOut();
-        // [END signout]
+
       } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
@@ -99,7 +97,9 @@
           var uid = user.uid;
           var providerData = user.providerData;
           // [START_EXCLUDE]
+
           document.getElementById('status').textContent = 'Hi, ' + email;
+          document.getElementsByTagName("a")[2].removeAttribute("href");
           document.getElementById('inout').textContent = 'Sign out';
           //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           if (!emailVerified) {
