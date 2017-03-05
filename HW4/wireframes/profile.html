@@ -43,6 +43,7 @@
   </body>
   
   <script>
+    alert("previous url is: " + window.history.previous.href);
 	var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
 	
 	function change(){
@@ -55,11 +56,11 @@
 				var ref1 = fav.child(user.uid);
 				if(ref1) {
 					var ref2 = ref1.push({
-						name: "Akali-Profile"
+						name: "Akali"
 					});
                 }
 				else{
-                    ref1.set({name: "Akali-Practice"});
+                    ref1.set({name: "Akali"});
                 }
 			}
 			else{
