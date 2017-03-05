@@ -51,23 +51,25 @@
 		if(user){
 			if(document.getElementById("favorite").value === "Favorite"){
 				document.getElementById("favorite").value = "Un-Favorite";
-				DatabaseReference ref1 = fav.child(user);
-				if(ref1) {
-                    DatabaseReference ref2 = ref1.push();
-                    ref2.setValue("Akali");
-                }
-				else{
-                    ref1.set({name: "Akali"});
-                }
+				//DatabaseReference ref1 = fav.child(user);
+				database.ref('user/' + user).set({name: "Akali"});
+				//if(ref1) {
+                //    DatabaseReference ref2 = ref1.push();
+                //    ref2.setValue("Akali");
+                //}
+				//else{
+                //    ref1.set({name: "Akali"});
+                //}
 				alert('Added to Favorites');
 			}
 			else{
 				alert('Removed from Favorites');
 				document.getElementById("favorite").value = "Favorite";
-				DatabaseReference ref1 = fav.child(user);
-				if(ref1) {
-                    ref1.set({name: null});
-                }
+				//DatabaseReference ref1 = fav.child(user);
+				database.ref('user/' + user).set({name: null});
+				//if(ref1) {
+                //    ref1.set({name: null});
+                //}
 			}
 		}
 		else{
