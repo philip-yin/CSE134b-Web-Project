@@ -75,6 +75,13 @@
       }
     }
 
+	function signout(){
+		if(firebase.auth().currentUser){
+			firebase.auth().signOut();
+			document.getElementById("inout").textContent = "Log In";
+		}
+	}
+	
 	function initApp() {
       // Listening for auth state changes.
       // [START authstatelistener]
@@ -114,6 +121,7 @@
       // [END authstatelistener]
       //document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
       //document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+	  document.getElementById('inout').addEventListener('click', signout, false);
     }
 	
 	
