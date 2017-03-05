@@ -10,51 +10,53 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 	<script src="javascript/common.js"></script>
-	<script>
-    alert("previous url is: " + window.history.previous.href);
-	var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
-	
-	function change(){
-		user = firebase.auth().currentUser;
-		if(user){
-			var favButton = document.getElementById("favorite").value;
-			if(favButton === "Favorite"){
-				alert('Added to Favorites');
-				document.getElementById("favorite").value = "Un-Favorite";
-				var ref1 = fav.child(user.uid);
-				if(ref1) {
-					var ref2 = ref1.push({
-						name: "Akali"
-					});
-                }
-				else{
-                    ref1.set({name: "Akali"});
-                }
-			}
-			else{
-				alert('Removed from Favorites');
-				document.getElementById("favorite").value = "Favorite";
-				var ref1 = fav.child(user.uid);
-				ref1.set({name: null});
-			}
-		}
-		else{
-			alert('Not logged in.');
-		}
-	}
-	window.onload = function displayCham(){
-        var championInfo = document.cookie.split(";");
+	<script type = "text/javascript">
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var championInfo = decodedCookie.split(";");
+		alert(decodedCookie);
 		var chamName = championInfo[0].split("=")[1];
+		alert(chamName);
 		document.getElementById("champname").innerHTML = chamName;
 		var chamImg = championInfo[1].split("=")[1];
 		document.getElementById("image").src = chamImg;
-    }
+	</script>
+	<script>
+		var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
 	
-	//var championInfo = document.cookie.split(";");
-	//var chamName = championInfo[0].split("=")[1];
-	//document.getElementById("champname").innerHTML = chamName;
+		function change(){
+			user = firebase.auth().currentUser;
+			if(user){
+				var favButton = document.getElementById("favorite").value;
+				if(favButton === "Favorite"){
+					alert('Added to Favorites');
+					document.getElementById("favorite").value = "Un-Favorite";
+					var ref1 = fav.child(user.uid);
+					if(ref1) {
+						var ref2 = ref1.push({
+							name: "Akali"
+						});
+					}
+					else{
+						ref1.set({name: "Akali"});
+					}
+				}
+				else{
+					alert('Removed from Favorites');
+					document.getElementById("favorite").value = "Favorite";
+					var ref1 = fav.child(user.uid);
+					ref1.set({name: null});
+				}
+			}
+			else{
+				alert('Not logged in.');
+			}
+		}
 	
-  </script>
+		//var championInfo = document.cookie.split(";");
+		//var chamName = championInfo[0].split("=")[1];
+		//document.getElementById("champname").innerHTML = chamName;
+	
+	</script>
   </head>
   
   <body>
@@ -86,5 +88,4 @@
 		</div>
 	</div>
   </body>
-  
 </html>
