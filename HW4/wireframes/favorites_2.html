@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>My Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+ <body>
+
+    <div class = topbar>
+        <h1>LeagueDex</h1>
+        <a href="index.html"> Home </a>
+        <a href="login.html"> Log In</a>
+        <a href="signup.html"> Sign Up</a>
+        <hr>
+    </div>
+
+    <div style = "text-align: center">
+      <img src="league.jpg" alt="banner">
+    </div>
+
+    <a href="index.html" class="tablinks" style = "float:left; width:50%; text-align:center;background-color:#36366f;" onclick="">Champions</a>
+    <a href="favorites_1.html" class="tablinks" style = "float:right; width:50%; text-align:center;background-color: #202060;" onclick="">Favorites</a>
+
+    <div style = "float:right;">
+    <a href="favorites_2.html" >
+        <img src="list-mode.png" alt="list mode" height="39" width="39"/>
+    </a>
+    <a href="favorites_1.html" >
+        <img src="image-mode.png" alt="image mode" height="50" width="50"/>
+    </a>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+        <h1 style = "text-align: center;color: #787878;">
+            Enter your Favorite Champions here</h1>
+        <hr/>
+        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onkeypress="return saveToList(event)" />
+        <h4 style = "text-align: center;color: #787878;">My Favorite Champions</h4>
+        <ol id="fav">
+        </ol>
+    </div>
+
+ </body>
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+<script src="javascript/common.js"></script>
+<script>
+    var fav = new Firebase('https://leaguedex.firebaseio.com/favorites');
+    var user = firebase.auth().currentUser;
+    
+    function saveToList(event) {
+        user = firebase.auth().currentUser;
+        fav = new Firebase('https://leaguedex.firebaseio.com/favorites');
+        if(user){
+            //when user press the enter key
+            if (event.which == 13 || event.keyCode == 13) { 
+                var chamName = document.getElementById('chamName').value;
+                if(fav.child(user) == null) {
+                    fav.push({
+                        name: user
+                    });
+                }
+                fav.child(user).push({
+                    name: chamName
+                });
+                document.getElementById('chamName').value = '';
+                return false;
+            }
+        }
+        else{
+            alert("Not logged in");
+        }
+    };
+ 
+    function refresh(list) {
+        var lis = '';
+        for (var i = 0; i < list.length; i++) {
+            lis += '<li data-key="' + list[i].key + '">' + list[i].name + '<button onclick ="delete('+list[i].key+')">X</button>'+'</li>';
+        };
+        document.getElementById('fav').innerHTML = lis;
+    };
+ 
+    function delete(key){
+        var delRef = new Firebase('https://leaguedex.firebaseio.com/favorites/' + user+'/'+key);
+        delRef.remove();
+    };
+
+    fav.on("value", function(snapshot) {
+        var data = snapshot.val();
+        var list = [];
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                name = data[key].name ? data[key].name : '';
+                list.push({
+                    name: name,
+                    key: key
+                })
+            }
+        }
+        refresh(list);
+    });
+</script>
+</html>
