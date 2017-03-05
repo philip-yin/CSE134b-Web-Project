@@ -12,44 +12,14 @@
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 	<script src="javascript/common.js"></script>
-	<script>
-	function handleSignUp() {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      if (email.length < 4) {
-        alert('Please enter an email address.');
-        return;
-      }
-      if (password.length < 4) {
-        alert('Please enter a password.');
-        return;
-      }
-      // Sign in with email and pass.
-      // [START createwithemail]
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
-          alert('The password is too weak.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
-        // [END_EXCLUDE]
-      });
-      // [END createwithemail]
-    }
-
-	</script>
+	<script src="javascript/signup.js"></script>
   </head>
   
   <body>
     <div class = "topbar">
 		<h1>LeagueDex</h1>
 		<a href="index.html" > Home </a>
-		<a href="login.html"> Log In </a>
+		<a href="login.html" id = "inout"> Log In </a>
 		<a href="signup.html" id = "status"> Sign Up </a>
 		<hr>
     </div>
@@ -61,9 +31,9 @@
 	<div style = "text-align: left; display: flex;justify-content: center; align-items: center;">
 	  <div style = "display: table;" method = "POST">
 	    <h4 style = "display: table-row;"><label>Email:</label>  <input type = "text" name = "email" id = "email"></h4><br>
-		  <h4 style = "display: table-row;"><label>Password:</label>  <input type = "text" name = "password" id = "password"></h4><br>
-		  <h4 style = "display: table-row;"><label>Confirm Password:</label> <input type = "text" name = "confirm"></h4><br>
-		  <button onclick = "ale()" id = "signup">Signup </button>
+		  <h4 style = "display: table-row;"><label>Password:</label>  <input type = "password" name = "password" id = "password"></h4><br>
+		  <h4 style = "display: table-row;"><label>Confirm Password:</label> <input type = "password" name = "confirm"></h4><br>
+		  <button id = "signup">Signup </button>
 	  </div>
 	</div>
   </body>

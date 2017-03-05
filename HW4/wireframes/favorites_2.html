@@ -31,15 +31,14 @@
             <img src="image-mode.png" alt="image mode" height="50" width="50"/>
         </a>
     </div>
+    <div style="text-align: center; margin-top: 5%;">
+        <h1 style = "text-align: center;color: #787878;">
+            Enter your Favorite Champions here</h1>
 
-    <div style="text-align: center;">
-        <h1 style = "text-align: center;color: #787878;">Enter your Favorite Champions here</h1>
-        <hr/>
-        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onKeyPress="saveToList(event)"/>
+        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onKeyPress="saveToList(event)" />
         <h4 style = "text-align: center;color: #787878;">My Favorite Champions</h4>
         <ol id="fav"></ol>
     </div>
-
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
@@ -51,7 +50,6 @@
     var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
     var user = firebase.auth().currentUser;
     function saveToList(event) {
-      alert('Added to Favorites');
         if(user){
             //when user press the enter key
             if (event.which == 13 || event.keyCode == 13) { 
