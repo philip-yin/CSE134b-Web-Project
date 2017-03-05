@@ -42,7 +42,7 @@
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
         // [START signout]
-        firebase.auth().signOut();
+        alert('You already logged in');
         // [END signout]
       } else {
         var email = document.getElementById('email').value;
@@ -75,6 +75,14 @@
       }
     }
 
+	function checkStatus(){
+		console.log("user: " + firebase.auth().currentUser);
+		if(firebase.auth().currentUser){
+			window.location.href = 'index.html';
+			console.log('redirect to home page');
+		}
+	}
+	
 	function signout(){
 		if(firebase.auth().currentUser){
 			firebase.auth().signOut();
@@ -123,6 +131,7 @@
       //document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 	  document.getElementById('login').addEventListener('click', toggleSignIn, false);
 	  document.getElementById('inout').addEventListener('click', signout, false);
+	  document.getElementById('login').addEventListener('click', checkStatus, false);
     }
 	
 	
