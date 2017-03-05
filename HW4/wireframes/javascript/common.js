@@ -9,7 +9,7 @@
 	firebase.initializeApp(config);
   
 	window.onload = function() {
-      initApp();
+        initApp();
     };
 	
 	function initApp() {
