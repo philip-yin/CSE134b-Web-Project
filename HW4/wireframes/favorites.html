@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>My Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+  <script src="javascript/common.js"></script>
+ </head>
+ <body>
+
+  	<div class = topbar>
+        <h1>LeagueDex</h1>
+        <a href="index.html"> Home </a>
+        <a href="login.html" id = "inout"> Log In</a>
+        <a href="signup.html" id = "status"> Sign Up</a>
+        <hr>
+    </div>
+    
+  	<div style = "text-align: center">
+      <img src="league.jpg" alt="banner">
+    </div>
+
+  	<a href="index.html" class="tablinks" style = "float:left; width:50%; text-align:center;background-color:#36366f;" onclick="">Champions</a>
+  	<a href="javascript:void(0)" class="tablinks" style = "float:right; width:50%; text-align:center;background-color: #202060;" onclick="">Favorites</a>
+   
+     <div style = "margin-top:10%; text-align:center;">
+      <a href = "profile.html">
+        <figure style = "margin-left: 6%; display:inline-block;">
+        <img src="champions\akali\akali.png" alt="champion" > <figcaption>Akali</figcaption> 
+        </figure>
+    </a>
+      <a href = "profile.html">
+        <figure style = "margin-left: 6%; display:inline-block;">
+        <img src="champions\darius\darius.png" alt="champion" > <figcaption>Darius</figcaption> 
+        </figure>
+    </a>
+      <a href = "profile.html">
+        <figure style = "margin-left: 6%; display:inline-block;">
+        <img src="champions\masteryi\masteryi.png" alt="champion" > <figcaption>Master Yi</figcaption> 
+        </figure>
+    </a>
+      <a href = "profile.html">
+        <figure style = "margin-left: 6%; display:inline-block;">
+        <img src="champions\skarner\skarner.png" alt="champion" > <figcaption>Skarner</figcaption> 
+        </figure>
+    </a>
+      <a href = "profile.html">
+        <figure style = "margin-left: 6%; display:inline-block;">
+        <img src="champions\vi\vi.png" alt="champion" > <figcaption>Vi</figcaption> 
+        </figure>
+    </a>
+    </div>
+
+ </body>
+</html>
