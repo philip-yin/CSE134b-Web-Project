@@ -11,47 +11,6 @@
   <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
   <script src="javascript/common.js"></script>
-<script>
-    var cham  = firebase.database().ref('Champions');
-  
-    /*window.onload = function displayCham(){
-			cham.once("value")
-            .then(onValue);
-    }
-
-    function refresh(list) {
-        var lis = '';
-        for (var i = 0; i < list.length; i++) {
-            lis += '<a href = "'+list[i].profile+
-                   '" onClick = "champInfoSend('+list+ ',' + i+')">'+
-                   '<figure style = "margin-left: 6%; display:inline-block;">'+
-                   '<img src='+list[i].image +' alt="champion" >'+
-                   '<figcaption>'+list[i].name+'</figcaption></figure></a>';
-        };
-        document.getElementById('cham').innerHTML = lis;
-    }*/
-	
-	function champInfoSend(name,img){
-	alert(name + img);
-		document.cookie = "champName=" + name + "; image=" + img;
-	}
-	/*
-    var onValue = function(snapshot) {
-        var data = snapshot.val();
-        var list = [];
-        for (var key in data) {
-            if (data.hasOwnProperty(key)) {
-                list.push({
-                    image: data[key].image,
-                    profile:data[key].profile,
-                    name: data[key].name
-                });
-            }
-        }
-        refresh(list);
-    }*/
-	
-</script>
  </head>
   <body>
 
