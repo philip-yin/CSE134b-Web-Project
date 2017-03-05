@@ -11,40 +11,13 @@
   <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
   <script src="javascript/common.js"></script> 
-  <script>
-  function ale(){
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
-	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-		// Handle Errors here.
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		// ...
-		if (errorCode === 'auth/wrong-password') {
-			alert('Wrong password.');
-		} else {
-			alert(errorMessage);
-		}
-	});
-	
-	firebase.auth().onAuthStateChanged(function(user) {
-		if (user) {
-		// User is signed in.
-			alert("Sign In Successful!");
-		} else {
-			// No user is signed in.
-			alert("Wrong Email/password entered");
-		}
-	});
-  }
-
-  </script>
+  <script src="javascript/login.js"></script>
  </head>
  <body>
     <div class = "topbar">
     	<h1>LeagueDex</h1>
     	<a href ="index.html"> Home</a>
-		<a href="login.html"> Log In </a>
+		<a href="login.html" id = "inout"> Log In </a>
 		<a href="signup.html" id = "status"> Sign Up</a>
     	<hr>
     </div>
@@ -58,7 +31,7 @@
 
   		<h4 style = "display: table-row;"><label>Email:</label>   <input type="text" name="username" id = "email"></h4><br>
   		<h4 style = "display: table-row;"><label>Password:</label>   <input type="text" name="password" id = "password"></h4><br>
-  		<button onclick = "ale()" id = "login"> Login </button>
+  		<button id = "login"> Login </button>
 
   	</div>
   </div>
