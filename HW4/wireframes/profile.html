@@ -44,29 +44,34 @@
   
   <script>
 	var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
-	var user = firebase.auth().currentUser;
-	var database = firebase.database();
 	
 	function change(){
+		user = firebase.auth().currentUser;
 		if(user){
-			if(document.getElementById("favorite").value === "Favorite"){
+			var favButton = document.getElementById("favorite").value;
+			if(favButton === "Favorite"){
 				document.getElementById("favorite").value = "Un-Favorite";
+				var ref1 = fav.child(user.uid);
 				//DatabaseReference ref1 = fav.child(user);
-				database.ref('user/' + user).set({name: "Akali"});
-				//if(ref1) {
-                //    DatabaseReference ref2 = ref1.push();
-                //    ref2.setValue("Akali");
-                //}
-				//else{
-                //    ref1.set({name: "Akali"});
-                //}
+				//database.ref('user/' + user).set({name: "Akali"});
+				if(ref1) {
+					var ref2 = ref1.push({
+						name: "Akali-Profile"
+					});
+                }
+				else{
+                    ref1.set({name: "Akali-Practice"});
+                }
 				alert('Added to Favorites');
 			}
 			else{
 				alert('Removed from Favorites');
 				document.getElementById("favorite").value = "Favorite";
+				var ref1 = fav.child(user.uid);
+				ref1.set({name: null});
+				
 				//DatabaseReference ref1 = fav.child(user);
-				database.ref('user/' + user).set({name: null});
+				//database.ref('user/' + user).set({name: null});
 				//if(ref1) {
                 //    ref1.set({name: null});
                 //}
@@ -76,5 +81,6 @@
 			alert('Not logged in.');
 		}
 	}
+	
   </script>
 </html>
