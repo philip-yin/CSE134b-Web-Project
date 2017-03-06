@@ -10,6 +10,12 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 	<script src="javascript/common.js"></script>
+	<script type+"text/javascript">
+		var chamName = document.cookie;
+		console.log(chamName);
+		document.getElementById("champname").innerHTML = chamName;
+	</script>
+	
 	<script>
 		var fav = firebase.database().ref("Favorite");
 		
