@@ -75,6 +75,8 @@
         var data = snapshot.val();
         var list = [];
         for (var key in data) {
+			console.log(key);
+			console.log(data);
             if (data.hasOwnProperty(key)) {
                 name = data[key].name ? data[key].name : '';
                 list.push({

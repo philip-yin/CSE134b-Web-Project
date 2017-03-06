@@ -15,11 +15,10 @@
 			var chamName = document.cookie;
 			console.log(chamName);
 			document.getElementById("champname").innerHTML = chamName;
+			var cham = firebase.database().ref("Champions");
+			var ref = cham.child(chamName).image;
+			console.log(ref);
 		}
-	</script>
-	
-	<script>
-		var fav = firebase.database().ref("Favorite");
 		
 		function changeChamp(){
 			//var championInfo = document.cookie.split(":");
@@ -59,6 +58,19 @@
 				alert('Not logged in.');
 			}
 		}
+		
+		/*var onValue = function(snapshot) {
+        //document.getElementById('fav-image').innerHTML = '';
+        var data = snapshot.val();
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                cham.child(data[key].name).on("value",function(snapshot2){
+                  var data2 = snapshot2.val();
+                  console.log(data2.image)
+                });
+            }
+        }*/
+    //}
 	</script>
   </head>
   
