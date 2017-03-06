@@ -16,25 +16,16 @@
 			console.log(chamName);
 			document.getElementById("champname").innerHTML = chamName;
 			var cham = firebase.database().ref("Champions");
-			//var ref = snapshot.child(chamName).child("image");
-			//console.log(ref);
-			//console.log(cham.child(chamName));
+			var pic = cham.child(chamName);
+			if(pic) {
+				pic.on("value", function(snapshot2){
+						var data2 = snapshot2.val();
+						document.getElementById("image").src = data2["image"];
+					});
+			}
 			
-			
-			cham.once("value", function(snapshot) {
-                  //if(snapshot.child(chamName).exists()){
-					console.log(snapshot.child(chamName));
-					console.log(snapshot.child(chamName).child("image"));
-                    //var ref1 = fav.child(user.uid);
-                    //var ref2 = ref1.push({
-                    //  name: chamName
-                    //});
-                    //ref1.on("value", onValue);
-                  //}//else{
-                    //alert("Not a Valid Champion Name!");
-                  //}
-            });
 		}	
+
 		
 		function change(){
 			user = firebase.auth().currentUser;
@@ -64,19 +55,6 @@
 				alert('Not logged in.');
 			}
 		}
-		
-		/*var onValue = function(snapshot) {
-        //document.getElementById('fav-image').innerHTML = '';
-        var data = snapshot.val();
-        for (var key in data) {
-            if (data.hasOwnProperty(key)) {
-                cham.child(data[key].name).on("value",function(snapshot2){
-                  var data2 = snapshot2.val();
-                  console.log(data2.image)
-                });
-            }
-        }*/
-    //}
 	</script>
   </head>
   

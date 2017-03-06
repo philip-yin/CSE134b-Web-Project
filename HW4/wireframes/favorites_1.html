@@ -30,7 +30,7 @@
     }
 
     function refresh(list) {
-        var lis = '<a href = '+list[0].profile+'>'+
+        var lis = '<a href = "'+list[0].profile+ '" onClick = "champInfoSend(' + "'"+ list[0].name + "'" +')"' +'>'+
                    '<figure style = "margin-left: 6%; display:inline-block;">'+
                    '<img src='+list[0].image +' alt="champion" >'+
                    '<figcaption>'+list[0].name+'</figcaption></figure></a>';
@@ -55,6 +55,11 @@
             }
         }
     }
+	
+	function champInfoSend(name){
+		document.cookie = name;
+		console.log(document.cookie + " name: " + name);
+	}
 </script>
  </head>
  <body>
