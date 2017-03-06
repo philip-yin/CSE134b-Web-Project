@@ -16,10 +16,25 @@
 			console.log(chamName);
 			document.getElementById("champname").innerHTML = chamName;
 			var cham = firebase.database().ref("Champions");
-			var ref = cham.child(chamName).child("image");
-			console.log(ref);
-			console.log(cham.child(chamName));
-		}
+			//var ref = snapshot.child(chamName).child("image");
+			//console.log(ref);
+			//console.log(cham.child(chamName));
+			
+			
+			cham.once("value", function(snapshot) {
+                  //if(snapshot.child(chamName).exists()){
+					console.log(snapshot.child(chamName));
+					console.log(snapshot.child(chamName).child("image"));
+                    //var ref1 = fav.child(user.uid);
+                    //var ref2 = ref1.push({
+                    //  name: chamName
+                    //});
+                    //ref1.on("value", onValue);
+                  //}//else{
+                    //alert("Not a Valid Champion Name!");
+                  //}
+            });
+			
 	
 		function change(){
 			user = firebase.auth().currentUser;
