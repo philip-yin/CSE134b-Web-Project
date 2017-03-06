@@ -14,13 +14,14 @@
 		//var decodedCookie = decodeURIComponent(document.cookie);
 		var championInfo = document.cookie.split(";");
 		var chamName = championInfo[0].split("=")[1];
+		console.log(chamName);
 		document.getElementById("champname").innerHTML = chamName;
 		var chamImg = championInfo[1].split("=")[1];
 		document.getElementById("image").src = chamImg;
 		alert(championInfo + " " + chamName + " " + chamImg);
 	</script>
 	<script>
-		var fav = new Firebase('https://leaguedex.firebaseio.com/Favorites');
+		var fav = firebase.database().ref("Favorite");
 	
 		function change(){
 			user = firebase.auth().currentUser;
