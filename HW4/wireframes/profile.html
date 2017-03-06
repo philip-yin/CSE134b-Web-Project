@@ -16,18 +16,9 @@
 			console.log(chamName);
 			document.getElementById("champname").innerHTML = chamName;
 			var cham = firebase.database().ref("Champions");
-			var ref = cham.child(chamName).image;
+			var ref = cham.child(chamName).child("image");
 			console.log(ref);
-		}
-		
-		function changeChamp(){
-			//var championInfo = document.cookie.split(":");
-			var chamName = document.cookie;
-			console.log(chamName);
-			document.getElementById("champname").innerHTML = chamName;
-			//var chamImg = championInfo[1].split("=")[1];
-			//document.getElementById("image").src = chamImg;
-			//alert(championInfo + " " + chamName + " " + chamImg);
+			console.log(cham.child(chamName));
 		}
 	
 		function change(){
@@ -83,7 +74,7 @@
       <hr>
     </div>
 	<div style = "text-align:center">
-	    <h2 id="champname" onload="changeChamp()">Champion Name</h2>
+	    <h2 id="champname">Champion Name</h2>
 	    <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
 		 
 		<img id="image" src="" alt="champion-picture" style="width:200px;height:200px;">
