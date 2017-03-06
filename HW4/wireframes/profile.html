@@ -12,7 +12,7 @@
 	<script src="javascript/common.js"></script>
 	<script type = "text/javascript">
 		//var decodedCookie = decodeURIComponent(document.cookie);
-		var championInfo = document.cookie.split(";");
+		var championInfo = document.cookie.split(":");
 		var chamName = championInfo[0].split("=")[1];
 		console.log(chamName);
 		document.getElementById("champname").innerHTML = chamName;
@@ -22,6 +22,16 @@
 	</script>
 	<script>
 		var fav = firebase.database().ref("Favorite");
+		
+		function changeChamp(){
+			var championInfo = document.cookie.split(":");
+			var chamName = championInfo[0].split("=")[1];
+			console.log(chamName);
+			document.getElementById("champname").innerHTML = chamName;
+			var chamImg = championInfo[1].split("=")[1];
+			document.getElementById("image").src = chamImg;
+			alert(championInfo + " " + chamName + " " + chamImg);
+		}
 	
 		function change(){
 			user = firebase.auth().currentUser;
@@ -68,7 +78,7 @@
       <hr>
     </div>
 	<div style = "text-align:center">
-	    <h2 id="champname"></h2>
+	    <h2 id="champname" onload="changeChamp()"></h2>
 	    <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
 		 
 		<img id="image" src="" alt="champion-picture" style="width:200px;height:200px;">
