@@ -39,22 +39,33 @@
                 cham.once("value", function(snapshot) {
                   if(snapshot.child(chamName).exists()){
                     var ref1 = fav.child(user.uid);
-                    ref1.on("value", function(snapshot2){
-                      var data = snapshot2.val();
-                      var flag = false;
-                      for (var key in data) {
-                        if(data[key].name == chamName) {
-                          flag = true;
-                          break;
+                    ref1.once("value", function(snapshot2){
+                      if(snapshot2.exists()){
+                        var data = snapshot2.val();
+                        var flag = false;
+                        for (var key in data) {
+                          if(data[key].name == chamName) {
+                            flag = true;
+                            break;
+                          }
+                        }
+                        if(!flag) {
+                          ref1.push({
+                            name: chamName
+                          });
+                          ref1.on("value", onValue);
+                        }
+                        else{
+                          alert("Re-Favorite Existed Champion");
                         }
                       }
-                      if(!flag){
+                      else{
                         ref1.push({
                           name: chamName
                         });
                         ref1.on("value", onValue);
                       }
-                    });
+                    });  
                   }else{
                     alert("Not a Valid Champion Name!");
                   }
