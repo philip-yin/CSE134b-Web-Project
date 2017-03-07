@@ -11,44 +11,77 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
 	<script src="javascript/common.js"></script>
 	<script type="text/javascript">
+        var fav  = firebase.database().ref('Favorites');
+        var cham = firebase.database().ref('Champions');
+    
+        firebase.auth().onAuthStateChanged(function(user) {
+         if (user) updateFavLabel(user);
+        });
+      
 		window.onload = function(){
-			var chamName = document.cookie;
-			console.log(chamName);
+            var eqPos = document.cookie.indexOf("=");
+            var chamName = document.cookie.substr(0, eqPos);
+            
 			document.getElementById("champname").innerHTML = chamName;
 			var cham = firebase.database().ref("Champions");
 			var pic = cham.child(chamName);
-			if(pic) {
-				pic.on("value", function(snapshot2){
-						var data2 = snapshot2.val();
-						document.getElementById("image").src = data2["image"];
-					});
-			}
-			
-		}	
+		    pic.on("value", function(snapshot){
+		      var data = snapshot.val();
+		      document.getElementById("image").src = data["image"];
+		    });
+          
+            //check if the chamname is in the database
+            user = firebase.auth().currentUser;
+            
+		}
+        
+        function updateFavLabel(user){
+          var eqPos = document.cookie.indexOf("=");
+          var chamName = document.cookie.substr(0, eqPos);
+          fav.child(user.uid).on("value",function(snapshot){
+            var data = snapshot.val();
+            var flag = false;
+            for (var key in data) {
+              if(data[key].name == chamName) {
+                flag = true;
+                break;
+              }
+            }
+            if (flag) document.getElementById("favorite").value = "Un-Favorite";
+            else document.getElementById("favorite").value = "Favorite";
+          });
+        }
 
 		
 		function change(){
 			user = firebase.auth().currentUser;
 			if(user){
 				var favButton = document.getElementById("favorite").value;
+                var eqPos = document.cookie.indexOf("=");
+                var chamName = document.cookie.substr(0, eqPos);
+              
 				if(favButton === "Favorite"){
 					alert('Added to Favorites');
 					document.getElementById("favorite").value = "Un-Favorite";
 					var ref1 = fav.child(user.uid);
-					if(ref1) {
-						var ref2 = ref1.push({
-							name: "Akali"
-						});
-					}
-					else{
-						ref1.set({name: "Akali"});
-					}
+                  
+                    ref1.push({
+                      name: chamName
+                    });
 				}
 				else{
 					alert('Removed from Favorites');
 					document.getElementById("favorite").value = "Favorite";
-					var ref1 = fav.child(user.uid);
-					ref1.set({name: null});
+                    fav.child(user.uid).on("value",function(snapshot){
+                      var data = snapshot.val();
+                      for (var key in data) {
+                        if(data[key].name == chamName) {
+                          var ref1 = fav.child(user.uid).child(key);
+                          ref1.remove();
+                          break;
+                        }
+                      }
+                    });
 				}
 			}
 			else{
@@ -68,7 +101,7 @@
     </div>
 	<div style = "text-align:center">
 	    <h2 id="champname">Champion Name</h2>
-	    <p> <input onclick="change()" type="button" id="favorite" value ="Favorite"></p>
+	    <p> <input onclick="change()" type="button" id="favorite" value = "Favorite"></p>
 		 
 		<img id="image" src="" alt="champion-picture" style="width:200px;height:200px;">
 		<div class = "bodybox">

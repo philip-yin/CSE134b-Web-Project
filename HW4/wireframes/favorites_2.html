@@ -39,7 +39,7 @@
                 cham.once("value", function(snapshot) {
                   if(snapshot.child(chamName).exists()){
                     var ref1 = fav.child(user.uid);
-                    var ref2 = ref1.push({
+                    ref1.push({
                       name: chamName
                     });
                     ref1.on("value", onValue);
@@ -78,9 +78,8 @@
 			console.log(key);
 			console.log(data);
             if (data.hasOwnProperty(key)) {
-                name = data[key].name ? data[key].name : '';
                 list.push({
-                    name: name,
+                    name: data[key].name,
                     key: key
                 });
             }
