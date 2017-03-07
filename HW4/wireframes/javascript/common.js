@@ -59,6 +59,9 @@
 	  document.getElementById('inout').addEventListener('click', signout, false);
     }
 	
+	function champInfoSend(name){
+		document.cookie = name;
+    }
 	
 	window.onload = function() {
       initApp();
