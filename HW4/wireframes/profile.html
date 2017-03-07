@@ -59,8 +59,7 @@
       
 		window.onload = function(){
             initApp();
-            var eqPos = document.cookie.indexOf("=");
-            var chamName = document.cookie.substr(0, eqPos);
+            var chamName = document.cookie;
             
 			document.getElementById("champname").innerHTML = chamName;
 			var cham = firebase.database().ref("Champions");
@@ -76,8 +75,7 @@
 		}
         
         function updateFavLabel(user){
-          var eqPos = document.cookie.indexOf("=");
-          var chamName = document.cookie.substr(0, eqPos);
+          var chamName = document.cookie;
           fav.child(user.uid).on("value",function(snapshot){
             var data = snapshot.val();
             var flag = false;
@@ -97,8 +95,7 @@
 			user = firebase.auth().currentUser;
 			if(user){
 				var favButton = document.getElementById("favorite").value;
-                var eqPos = document.cookie.indexOf("=");
-                var chamName = document.cookie.substr(0, eqPos);
+                var chamName = document.cookie;
               
 				if(favButton === "Favorite"){
 					alert('Added to Favorites');
