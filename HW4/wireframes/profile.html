@@ -9,16 +9,56 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-	<script src="javascript/common.js"></script>
 	<script type="text/javascript">
+        var config = {
+		apiKey: "AIzaSyAIWLbugKRBWSFmyEzgD_HPYdSFOEhztyk",
+		authDomain: "leaguedex.firebaseapp.com",
+		databaseURL: "https://leaguedex.firebaseio.com",
+		storageBucket: "leaguedex.appspot.com",
+		messagingSenderId: "47559996849"
+        };
+        firebase.initializeApp(config);
+
+        function signout(){
+            if(firebase.auth().currentUser){
+                firebase.auth().signOut();
+                document.getElementById("inout").textContent = "Log In";
+            }
+        }
+
+        function initApp() {
+          firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              var displayName = user.displayName;
+              var email = user.email;
+              var emailVerified = user.emailVerified;
+              var photoURL = user.photoURL;
+              var isAnonymous = user.isAnonymous;
+              var uid = user.uid;
+              var providerData = user.providerData;
+
+              document.getElementById('status').textContent = 'Hi, ' + email;
+              document.getElementsByTagName("a")[2].removeAttribute("href");
+              document.getElementById('inout').textContent = 'Sign out';
+              if (!emailVerified) {
+              }
+            } else {
+              document.getElementById('status').textContent = 'Sign Up';
+              document.getElementById('inout').textContent = 'Log In';
+            }
+          });
+          document.getElementById('inout').addEventListener('click', signout, false);
+        }
+      
         var fav  = firebase.database().ref('Favorites');
         var cham = firebase.database().ref('Champions');
-    
+
         firebase.auth().onAuthStateChanged(function(user) {
          if (user) updateFavLabel(user);
         });
       
 		window.onload = function(){
+            initApp();
             var eqPos = document.cookie.indexOf("=");
             var chamName = document.cookie.substr(0, eqPos);
             
