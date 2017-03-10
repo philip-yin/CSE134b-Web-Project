@@ -67,7 +67,7 @@
     function refresh(list) {
         var lis = '';
         for (var i = 0; i < list.length; i++) {
-            lis += '<li>' + list[i].name + '  <button onclick ="deleteFav(\''+list[i].key+'\')">X</button>'+'</li>';
+            lis += '<li>' + list[i].name + '  <button style="margin-left:7px;border-radius:5px;border: 1px solid;" onclick ="deleteFav(\''+list[i].key+'\')">X</button>'+'</li>';
         }; 
         document.getElementById('fav').innerHTML = lis;
     }
