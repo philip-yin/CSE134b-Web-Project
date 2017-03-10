@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <title>My Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+<script src="javascript/common.js"></script>
+<script src="javascript/favorites_2.js"></script>
+
+  </head>
+ <body>
+   
+    <div class = topbar>
+        <h1>LeagueDex</h1>
+        <a href="index.html"> Home </a>
+        <a href="login.html" id = "inout"> Log In</a>
+        <a href="signup.html" id = "status"> Sign Up</a>
+        <hr>
+    </div>
+
+    <div style = "text-align: center">
+      <img src="league.jpg" alt="banner">
+    </div>
+
+    <a href="index.html" class="tablinks" style = "float:left; width:50%; text-align:center;background-color:#36366f;">Champions</a>
+    <a href="favorites_1.html" class="tablinks" style = "float:right; width:50%; text-align:center;">Favorites</a>
+
+    <div style = "float:right;">
+        <a href="favorites_2.html" >
+            <img src="list-mode.png" alt="list mode" height="39" width="39"/>
+        </a>
+        <a href="favorites_1.html" >
+            <img src="image-mode.png" alt="image mode" height="50" width="50"/>
+        </a>
+    </div>
+    <div style="text-align: center; margin-top: 5%;">
+        <h1 style = "text-align: center;color: #787878;">
+            Enter your Favorite Champions here</h1>
+
+        <input style="width: 50%; font-size:12pt;" type="text" id="chamName" placeholder="Enter your Favorite Champion Name" onKeyPress="return saveToList(event)" />
+        <h4 style = "text-align: center;color: #787878;">My Favorite Champions</h4>
+        <ol style = "display: inline-block;margin-left: auto;margin-right: auto;color:#787878;" id="fav"></ol>
+    </div>
+ </body>
+</html>

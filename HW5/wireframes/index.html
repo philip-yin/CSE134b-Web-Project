@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My Page</title>
+		<link rel="stylesheet" href="css/styles.css">
+		<meta charset="utf-8" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+		<script src="javascript/common.js"></script>
+	</head>
+  <body>
+		<div class = topbar>
+			<h1>LeagueDex</h1>
+			<a href="index.html"> Home </a>
+			<a href="login.html" id = "inout"> Log In</a>
+			<a href="signup.html" id = "status"> Sign Up</a> 
+			<hr>
+		</div>
+
+		<div style = "text-align: center; ">
+			<img src="league.jpg" alt="banner" >
+		</div>
+		
+		<div>
+			<a href="index.html" id = "champions" class="tablinks" style = "float:left; width:50%; text-align:center; background-color: #202060;" >Champions</a>
+			<a href="favorites_1.html"  id = "favorites" class="tablinks" style = "float:right; width:50%; text-align:center; background-color:#36366f;" >Favorites</a>
+			<input type = "text" name = "search" placeholder="Search Champion..." style = "margin:2%; float:right;">
+		</div>
+
+		<div id = "cham" style = "margin-top:10%; text-align:center;"></div>
+	
+	<div style = "margin-top:10%; text-align:center;">
+	    <a href = "profile.html" id = "Akali" onClick = "champInfoSend('Akali')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\akali\akali.png" alt="champion" > <figcaption>Akali</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" id = "Ashe" onClick = "champInfoSend('Ashe')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\ashe\ashe.png" alt="champion" > <figcaption>Ashe</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" id = "Darius" onClick = "champInfoSend('Darius')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\darius\darius.png" alt="champion" > <figcaption>Darius</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" id = "Lucian" onClick = "champInfoSend('Lucian')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\lucian\lucian.png" alt="champion" > <figcaption>Lucian</figcaption> 
+  		  </figure>
+		</a>
+  		<a href = "profile.html" id = "Master Yi" onClick = "champInfoSend('Master Yi')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\masteryi\masteryi.png" alt="champion" > <figcaption>Master Yi</figcaption> 
+  		  </figure>
+		</a>
+  	</div>
+
+  	<div style = "margin-top:4%; text-align:center">
+  		<a href = "profile.html" id = "Riven" onClick = "champInfoSend('Riven')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\riven\riven.png" alt="champion" > <figcaption>Riven</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" id = "Skarner" onClick = "champInfoSend('Skarner')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\skarner\skarner.png" alt="champion" > <figcaption>Skarner</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" id = "Tristana" onClick = "champInfoSend('Tristana')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\tristana\tristana.png" alt="champion" > <figcaption>Tristana</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" id = "Vi" onClick = "champInfoSend('Vi')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\vi\vi.png" alt="champion" > <figcaption>Vi</figcaption> 
+  		  </figure>
+		  </a>
+		  <a href = "profile.html" id = "Yasuo" onClick = "champInfoSend('Yasuo')">
+  		  <figure style = "margin-left: 6%; display:inline-block;">
+  			<img src="champions\yasuo\yasuo.png" alt="champion" > <figcaption>Yasuo</figcaption> 
+  		  </figure>
+		  </a>
+    <div id = "cham" style = "margin-top:10%; text-align:center;">
+  	</div>
+
+ </body>
+</html>
