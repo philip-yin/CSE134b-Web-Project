@@ -1,5 +1,7 @@
 LeagueDex
 
+Link: https://leaguedex.firebaseapp.com/hw5/wireframes/index.html
+
 
 LeagueDex is a web application that allows a user to sign up for an account through email or google and allows them to favorite their champions for easy access.
 Champions that are currently listed in LeagueDex's database are displayed on the home page. In the favorites tab, there are two views : List view and image view.
