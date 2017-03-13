@@ -11,7 +11,7 @@
 	function handleSignUp() {
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
-	  var confirm = document.getElementById('confirm').value;
+	    var confirm = document.getElementById('confirm').value;
       if (email.length < 4) {
         alert('Please enter an email address.');
         return;
@@ -20,10 +20,10 @@
         alert('Please enter a password.');
         return;
       }
-	  if (password !== confirm){
-		  alert('Please enter the same password twice.');
-		  return;
-	  }
+	    if (password !== confirm){
+		    alert('Please enter the same password twice.');
+		    return;
+	    }
       // Sign in with email and pass.
       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
@@ -41,7 +41,8 @@
 	function toggleSignIn() {
       if (firebase.auth().currentUser) {
 
-      } else {
+      } 
+      else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
 		
@@ -87,15 +88,14 @@
           var email = error.email;
           // The firebase.auth.AuthCredential type that was used.
           var credential = error.credential;
-          // [START_EXCLUDE]
           if (errorCode === 'auth/account-exists-with-different-credential') {
             alert('You have already signed up with a different auth provider for that email.');
             // If you are using multiple auth providers on your app you should handle linking
             // the user's accounts here.
-          } else {
+          } 
+          else {
             console.error(error);
           }
-          // [END_EXCLUDE]
         });
         // [END signin]
       } else {
