@@ -103,15 +103,15 @@
             alert('You have already signed up with a different auth provider for that email.');
             // If you are using multiple auth providers on your app you should handle linking
             // the user's accounts here.
-          } else {
+          } 
+          else {
             console.error(error);
           }
         });
         // [END signin]
-      } else {
-        // [START signout]
-		alert("you already signed in with an account!");
-        // [END signout]
+      } 
+      else {
+		      alert("you already signed in with an account!");
       }
     }
 
@@ -119,7 +119,7 @@
 	function checkStatus(){
 		firebase.auth().onAuthStateChanged(function(user) {
 			if(user){
-			window.location.href = 'index.html';
+			   window.location.href = 'index.html';
 			}
 		});
 	}
@@ -160,9 +160,9 @@
 	  document.getElementById('login').addEventListener('click', checkStatus, false);
 	  document.getElementById('google').addEventListener('click', googleSignIn, false);
 	  document.getElementById('google').addEventListener('click', checkStatus, false);
-    }
+  }
 	
 	
 	window.onload = function() {
       initApp();
-    };
+  };
