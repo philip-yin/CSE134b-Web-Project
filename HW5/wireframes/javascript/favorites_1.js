@@ -1,3 +1,5 @@
+    
+    // name of firebase database categories
     var cham = firebase.database().ref('Champions');
     var fav2 = firebase.database().ref('Favorites');
     
@@ -5,6 +7,8 @@
       if (user) displayFav(user);
     });
   
+
+    // calls onValue function to create and display list of favorited champions
     function displayFav(user){
       if(user){
          var ref1 = fav2.child(user.uid);
@@ -15,6 +19,7 @@
       }
     }
 
+    // displays the list of favorited champions along with their images, for a given user
     function refresh(list) {
         var lis = '<a href = "'+list[0].profile+ '" onClick = "champInfoSend(' + "'"+ list[0].name + "'" +')"' +'>'+
                    '<figure style = "margin-left: 6%; display:inline-block;">'+
@@ -23,6 +28,7 @@
         document.getElementById('fav-image').innerHTML += lis;
     }
 
+    // creates a list of favorited champions for a given user
     var onValue = function(snapshot) {
         document.getElementById('fav-image').innerHTML = '';
         var data = snapshot.val();

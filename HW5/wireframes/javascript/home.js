@@ -8,6 +8,7 @@
 	};
 	firebase.initializeApp(config);
 
+  // called on user signout
 	function signout(){
 		if(firebase.auth().currentUser){
 			firebase.auth().signOut();
@@ -15,13 +16,10 @@
 		}
 	}
 	
+  //called on window page load
 	function initApp() {
       // Listening for auth state changes.
-      // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {
-        // [START_EXCLUDE silent]
-        //document.getElementById('quickstart-verify-email').disabled = true;
-        // [END_EXCLUDE]
         if (user) {
           // User is signed in.
           var displayName = user.displayName;
@@ -31,36 +29,23 @@
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-          // [START_EXCLUDE]
 
           document.getElementById('status').textContent = 'Hi, ' + email;
           document.getElementsByTagName("a")[2].removeAttribute("href");
           document.getElementById('inout').textContent = 'Sign out';
-          //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-          if (!emailVerified) {
-            //document.getElementById('quickstart-verify-email').disabled = false;
-          }
-          // [END_EXCLUDE]
-        } else {
+        } 
+        else {
           // User is signed out.
-          // [START_EXCLUDE]
           document.getElementById('status').textContent = 'Sign Up';
           document.getElementById('inout').textContent = 'Log In';
-          //document.getElementById('quickstart-account-details').textContent = 'null';
-          // [END_EXCLUDE]
         }
-        // [START_EXCLUDE silent]
-        //document.getElementById('quickstart-sign-in').disabled = false;
-        // [END_EXCLUDE]
       });
-      // [END authstatelistener]
-      //document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-      //document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 	  document.getElementById('inout').addEventListener('click', signout, false);
     }
 	
 	var cham  = firebase.database().ref('Champions');
 
+    // displays the list of champions in database
     function refresh(list) {
         var lis = '';
         for (var i = 0; i < list.length; i++) {
@@ -77,6 +62,7 @@
 		document.cookie = "champName=" + list[i].name + "; image=" + list[i].image;
 	}
 
+    // creates the list of champions in database
     var onValue = function(snapshot) {
         var data = snapshot.val();
         var list = [];
