@@ -55,7 +55,10 @@
 		    pic.on("value", function(snapshot){
 		      var data = snapshot.val();
 		      document.getElementById("image").src = data["image"];
+          document.getElementById("tips").innerHTML = data["tip"];
 		    });
+
+
           
             //check if the chamname is in the database
             user = firebase.auth().currentUser;
