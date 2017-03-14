@@ -1,32 +1,36 @@
 <!DOCTYPE html>
+<html>
   <head>
-    <title> Runes </title>
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Runes </title>
+    <link rel="stylesheet" href="css/styles.css">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-  <script type="text/javascript" src = "javascript/profile.js"></script>
+    <script type="text/javascript" src = "javascript/profile.js"></script>
 	<script src="javascript/common.js"></script>
   </head>
   <body>
-
-    <div class = topbar>
+    <!-- Top Header --> 
+    <header class = "topbar">
       <h1>LeagueDex</h1>
       <a href="index.html"> Home </a>
       <a href="login.html" id = "inout"> Log In</a>
       <a href="signup.html" id = "status"> Sign Up</a>
       <hr>
-    </div>
-    <div style = "text-align: center;">
-
+    </header>
+    
+    <!-- Main Section --> 
+    <section style = "text-align: center;">
+      <!-- Display Champion Image -->
       <h2 id="champname"> Champion name</h2>
       <img id="image" alt="champion-picture">
 
       <h3>Recommended Runes</h3>
+      <!-- Display Rune Images -->
       <div class = "bodybox">
         <figure style = "margin-left: 6%; display:inline-block;">
           <img src="pics\greater-quintessence-of-ability-power.png" alt="greater-quintessence-of-ability-power"> 
@@ -45,6 +49,6 @@
           <figcaption>Greater Mark of Magic Penetration <br> x9 </figcaption> 
         </figure>
       </div>
-    </div>
+    </section>
   </body>
 </html>

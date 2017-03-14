@@ -1,36 +1,38 @@
 <!DOCTYPE html>
+<html>
   <head>
-    <title>Skills </title> 
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Skills </title> 
+    <link rel="stylesheet" href="css/styles.css">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-  <script type="text/javascript" src = "javascript/profile.js"></script>
+    <script type="text/javascript" src = "javascript/profile.js"></script>
 	<script src="javascript/common.js"></script>
   </head>
   
   <body>
-  	  <div class = topbar>
-        <h1>LeagueDex</h1>
-        <a href="index.html"> Home </a>
-        <a href="login.html" id = "inout"> Log In</a>
-        <a href="signup.html" id = "status"> Sign Up</a>
-        <hr>
-      </div>
+    <!-- Top Header --> 
+    <header class = "topbar">
+      <h1>LeagueDex</h1>
+      <a href="index.html"> Home </a>
+      <a href="login.html" id = "inout"> Log In</a>
+      <a href="signup.html" id = "status"> Sign Up</a>
+      <hr>
+    </header>
 
-  	<div style = "text-align: center">
+    <!-- Main Section --> 
+  	<section style = "text-align: center">
+      <!-- Display Champion Image -->
   	  <h2 id="champname"> Champion name</h2>
   	  <img id="image" alt="champion-picture">
 
       <h3> Ability Sequence </h3>
       <img src="champions\akali\akali-skills.png" alt = "skills" style = "margin-bottom: 10%">
-
-    </div>
+    </section>
 
   </body>
-
 </html>

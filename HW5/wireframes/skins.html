@@ -1,55 +1,58 @@
 <!DOCTYPE html>
+<html>
   <head>
-    <title> Skins </title>
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Skins </title>
+    <link rel="stylesheet" href="css/styles.css">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-  <script type="text/javascript" src = "javascript/profile.js"></script>
+    <script type="text/javascript" src = "javascript/profile.js"></script>
 	<script src="javascript/common.js"></script>
   </head>
   
   <body>
-
-  	<div class = topbar>
+    <!-- Top Header --> 
+    <header class = "topbar">
       <h1>LeagueDex</h1>
       <a href="index.html"> Home </a>
       <a href="login.html" id = "inout"> Log In</a>
       <a href="signup.html" id = "status"> Sign Up</a>
       <hr>
-    </div>
+    </header>
 	
-	<div style = "text-align: center;">
+    <!-- Main Section --> 
+	<section style = "text-align: center;">
+      <!-- Display Champion Image -->
 	  <h2 id="champname"> Champion name</h2>
 	  <img id="image" alt="champion-picture">
 
       <h3> Skins </h3>
-  		<figure style = "margin-left: 1%; display:inline-block;">
-  		  <img src="champions\akali\skin\akali-classic.jpg" alt="classic"> 
-		  <figcaption>Akali-classic</figcaption> 
-  		</figure>
-  		<figure style = "margin-left: 1%; display:inline-block;">
-  	      <img src="champions\akali\skin\akali-crimson.jpg" alt="akali-crimson"> 
-		  <figcaption>Akali Crimson</figcaption> 
-  		</figure>
-  		<figure style = "margin-left: 1%; display:inline-block;">
-  		  <img src="champions\akali\skin\akali-stinger.jpg" alt="akali-stinger"> 
-		  <figcaption>Akali Stinger</figcaption> 
-  		</figure>
-  		<figure style = "margin-left: 1%; display:inline-block;">
-  		  <img src="champions\akali\skin\akali-all-star.jpg" alt="akali-all-star"> 
-		  <figcaption>Akali All Star</figcaption> 
-  		</figure>
-  		<figure style = "margin-left: 1%; display:inline-block;">
-  	      <img src="champions\akali\skin\akali-nurse.jpg" alt="akali-nurse"> 
-		  <figcaption>Akali Nurse</figcaption> 
-  		</figure>
-  	</div>
+      <!-- Display Skins-->
+      <figure style = "margin-left: 1%; display:inline-block;">
+        <img src="champions\akali\skin\akali-classic.jpg" alt="classic"> 
+        <figcaption>Akali-classic</figcaption> 
+      </figure>
+      <figure style = "margin-left: 1%; display:inline-block;">
+        <img src="champions\akali\skin\akali-crimson.jpg" alt="akali-crimson"> 
+        <figcaption>Akali Crimson</figcaption> 
+      </figure>
+      <figure style = "margin-left: 1%; display:inline-block;">
+        <img src="champions\akali\skin\akali-stinger.jpg" alt="akali-stinger"> 
+        <figcaption>Akali Stinger</figcaption> 
+      </figure>
+      <figure style = "margin-left: 1%; display:inline-block;">
+        <img src="champions\akali\skin\akali-all-star.jpg" alt="akali-all-star"> 
+        <figcaption>Akali All Star</figcaption> 
+      </figure>
+      <figure style = "margin-left: 1%; display:inline-block;">
+        <img src="champions\akali\skin\akali-nurse.jpg" alt="akali-nurse"> 
+        <figcaption>Akali Nurse</figcaption> 
+      </figure>
+  	</section>
   
   </body>
-
 </html>

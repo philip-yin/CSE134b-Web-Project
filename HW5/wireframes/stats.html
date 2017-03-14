@@ -1,79 +1,82 @@
 <!DOCTYPE html>
+<html>
   <head>
-    <title> Stats </title>
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> Stats </title>
+    <link rel="stylesheet" href="css/styles.css">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-  <script type="text/javascript" src = "javascript/profile.js"></script>
+    <script type="text/javascript" src = "javascript/profile.js"></script>
 	<script src="javascript/common.js"></script>
   </head>
   <body>
-
-      <div class = topbar>
-        <h1>LeagueDex</h1>
-        <a href="index.html"> Home </a>
-        <a href="login.html" id = "inout"> Log In</a>
-        <a href="signup.html" id = "status"> Sign Up</a>
-        <hr>
-      </div>
+    <!-- Top Header --> 
+    <header class = "topbar">
+      <h1>LeagueDex</h1>
+      <a href="index.html"> Home </a>
+      <a href="login.html" id = "inout"> Log In</a>
+      <a href="signup.html" id = "status"> Sign Up</a>
+      <hr>
+    </header>
     
-      <div style ="text-align: center">
+    <!-- Main Section --> 
+    <section style ="text-align: center">
+      <!-- Display Champion Image -->
+      <h2 id="champname">Champion Name</h2>
+      <img id="image" alt="champion-picture">
 
-        <h2 id="champname">Champion Name</h2>
-        <img id="image" alt="champion-picture">
-
-        <h3>Statistics</h3>
-        <div class ="bodybox">
-          <table style="border-spacing: 15px; margin: auto;">
-            <tr>
-              <td style = "padding-bottom:25px;">Level
-                <select onchange="updateVal(this)">
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                </select>
-              </td>
-              <td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <td><span>HEALTH:</span></td>
-              <td> <p id ="Health">588</p></td>
-              <td><span>ATTACK DAMAGE</span></td>
-              <td> <p id="AttackDamage">58.4</p></td>
-            </tr>
-            <tr>
-              <td><span>HEALTH REGEN:</span></td>
-              <td> <p id="HealthRegen">8.34</p></td>
-              <td><span>ATTACK SPEED:</span></td>
-              <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
-            </tr>
-            <tr>
-              <td><span>MANA:</span></td>
-              <td> <p id="ResourceBar">200</p></td>
-              <td> <span>ARMOR:</span></td>
-              <td> <p id="Armor">26.4</p></td>
-            </tr>
-            <tr>
-              <td><span>MANA REGEN:</span></td>
-              <td> <p id="ResourceRegen">50</p></td>
-              <td><span>MAGIC RESIST:</span></td>
-              <td> <p id="MagicResist">32.1</p></td>
-            </tr>
-            <tr>
-              <td><span>RANGED:</span></td>
-              <td><p id="Range">125</p></td>
-              <td><span>MOVE SPEED:</span></td>
-              <td> <p id="MovementSpeed">350</p></td>
-            </tr>
-          </table>
-        </div>
-    </div>
+      <h3>Statistics</h3>
+      <!-- Display Statistics Info -->
+      <div class ="bodybox">
+        <table style="border-spacing: 15px; margin: auto;">
+          <tr>
+            <td style = "padding-bottom:25px;">Level
+              <select onchange="updateVal(this)">
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+              </select>
+            </td>
+            <td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><span>HEALTH:</span></td>
+            <td> <p id ="Health">588</p></td>
+            <td><span>ATTACK DAMAGE</span></td>
+            <td> <p id="AttackDamage">58.4</p></td>
+          </tr>
+          <tr>
+            <td><span>HEALTH REGEN:</span></td>
+            <td> <p id="HealthRegen">8.34</p></td>
+            <td><span>ATTACK SPEED:</span></td>
+            <td><p>0.694(+<span id="AttackSpeed">0</span>%)</p></td>
+          </tr>
+          <tr>
+            <td><span>MANA:</span></td>
+            <td> <p id="ResourceBar">200</p></td>
+            <td> <span>ARMOR:</span></td>
+            <td> <p id="Armor">26.4</p></td>
+          </tr>
+          <tr>
+            <td><span>MANA REGEN:</span></td>
+            <td> <p id="ResourceRegen">50</p></td>
+            <td><span>MAGIC RESIST:</span></td>
+            <td> <p id="MagicResist">32.1</p></td>
+          </tr>
+          <tr>
+            <td><span>RANGED:</span></td>
+            <td><p id="Range">125</p></td>
+            <td><span>MOVE SPEED:</span></td>
+            <td> <p id="MovementSpeed">350</p></td>
+          </tr>
+        </table>
+      </div>
+    </section>
 	<script src="javascript/stats.js"></script>
   </body>
 </html>

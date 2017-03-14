@@ -1,37 +1,41 @@
 <!DOCTYPE html>
+<html>
   <head>
-	<title> Masteries </title>
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title> Masteries </title>
+    <link rel="stylesheet" href="css/styles.css">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
-  <script type="text/javascript" src = "javascript/profile.js"></script>
+    <script type="text/javascript" src = "javascript/profile.js"></script>
 	<script src="javascript/common.js"></script>
   </head>
   
   <body>
-
-    <div class = topbar>
+    <!-- Top Header --> 
+    <header class = "topbar">
       <h1>LeagueDex</h1>
       <a href="index.html"> Home </a>
       <a href="login.html" id = "inout"> Log In</a>
       <a href="signup.html" id = "status"> Sign Up</a>
       <hr>
-    </div>
+    </header>
   
-    <div style ="text-align: center">
+    <!-- Top section -->
+    <section style = "text-align:center;">
+      <!-- Display Champion Image -->
       <h2 id="champname"> Champion name</h2>
       <img id="image" alt="champion-picture">
 
       <h3>Recommended Masteries</h3>
-    </div>
+    </section>
 
     <div style="margin-top: 2%; text-align: center">
       <h4 style="text-align: center; margin-bottom: -10px">Jungle Build: </h4> <br>
+      <!-- Offense Figure -->
       <figure style="display: inline-block;">
         <figcaption>Offense:</figcaption>
         <figure>
@@ -40,6 +44,7 @@
         </figure>
       </figure>
 
+      <!-- Defense Figure -->
       <figure style="margin-left:-10px; margin-right:-10px; display: inline-block;">
         <figcaption>Defense:</figcaption>
         <figure>
@@ -47,7 +52,8 @@
           <figcaption>Points Used: 19</figcaption>
         </figure>
       </figure>
-
+      
+      <!-- Utility Figure -->
       <figure style="display: inline-block;">
         <figcaption>Utility:</figcaption>
         <figure>
@@ -58,5 +64,4 @@
     </div>
   
   </body>
-
 </html>
