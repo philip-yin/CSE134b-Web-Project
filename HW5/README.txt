@@ -62,9 +62,13 @@ Firebase database. Along with all the champions that we haven't stored in the da
 to input them all in manually. For example, in the statistics page, there are eighteen levels and for each level the numbers for each category vary. There are twelve categories,
 so that would mean we would have to take into account 18*12 = 216 numbers for a single champion. By using firebase database and entering in each number individually, it couldn't  
 be done, given the time we had. So for each category of information, the same information is displayed for each champion. An example, is that for skins category, the user will
-see the same five pictures even if they go to a different champion. The loading speed of the pages ranges from 3 to 7 seconds, depending on the page. The main page finishes loading
+see the same five pictures even if they go to a different champion.
+
+Performance
+
+The loading speed of the pages ranges from 3 to 7 seconds, depending on the page. The main page finishes loading
 at about 7.5 seconds on a 3G speed with no cache. The reason it runs the longest is because the amount of data and pictures needed to show on the main page, while it is also loading up the javascript files and
-database from firebase. The other profile and subpages for the profile pages are generally around 3-4 seconds as there is less information and pictures to gather  from the database
+database from firebase. However, our images are not very large so it is requires less time to load. The other profile and subpages for the profile pages are generally around 3-4 seconds as there is less information and pictures to gather  from the database
 and display in comparison to the main index page. 
 
 
