@@ -13,6 +13,7 @@ and skins with links to each on the profile page.
 
 Code Architecture
 
+It takes a small delay of time for the javascript functions to be called to update our HTML accordingly.
 
 1. "common.js" is the javascript file common to all the web pages for our application. This mainly is just for the navigation bar on top of every page, which displays whether
 the user is signed in or not, and if so, allows them to signout no matter what page they are on. This also stores a name variable to the cookie that is saved and used throughout
@@ -29,15 +30,15 @@ with delete buttons next to each name displayed. There is also a function that a
 5. "login.js" handles all the functions needed for a user to login. It handles and checks to see if the correct email and password is used to sign in and also handles
 google signin function. It also has a function that directs the user to home page upon successful login.
 
-6. "profile.js" has a function that updates the favorite's button when clicked. It also has functions that handle which champion profile its on, and displays the champion
+6. "profile.js" has a function that updates the favorite's button when clicked. It also has functions that handle which champion profile it is on, and displays the champion
 information accordingly.
 
 7. "signup.js" is similar to login. It has a function that makes sure the user is entering in a correctly formatted email and password. Once successfully signed up, it has
 a function that directs the user to the home page.
 
-8. "stats.js" is a script that tells us what numbers to display in respect to the level that the user selects.
+8. "stats.js" is a script that tells us what numbers to display for each category of statistics in respect to the level that the user selects.
 
-9. For the html files, the name of each file tell you which page of the website that it is for.
+9. For the html files, the name of each file tell you which page of the website that the file is for.
 
 
 File organization
@@ -62,7 +63,9 @@ Firebase database. Along with all the champions that we haven't stored in the da
 to input them all in manually. For example, in the statistics page, there are eighteen levels and for each level the numbers for each category vary. There are twelve categories,
 so that would mean we would have to take into account 18*12 = 216 numbers for a single champion. By using firebase database and entering in each number individually, it couldn't  
 be done, given the time we had. So for each category of information, the same information is displayed for each champion. An example, is that for skins category, the user will
-see the same five pictures even if they go to a different champion. The loading speed of the pages ranges from 3 to 7 seconds, depending on the page. The main page finishes loading
+see the same five pictures even if they go to a different champion. 
+
+The loading speed of the pages ranges from 3 to 7 seconds, depending on the page. The main page finishes loading
 at about 7.5 seconds on a 3G speed with no cache. The reason it runs the longest is because the amount of data and pictures needed to show on the main page, while it is also loading up the javascript files and
 database from firebase. The other profile and subpages for the profile pages are generally around 3-4 seconds as there is less information and pictures to gather  from the database
 and display in comparison to the main index page. 
